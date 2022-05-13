@@ -109,7 +109,12 @@ def sample(model, x, temperature=1.0, topk=None, cdf=None, **forward_kwargs):
         x : tensor[ batch_size x sequence_length ]
     '''
     ## [ batch_size x sequence_length x vocab_size ]
-    logits = forward(model, x, **forward_kwargs)
+    forward_kwargs = forward_kwargs.copy()
+    goal = forward_kwargs['goal']
+    del forward_kwargs['goal']
+    if goal.shape[0] == 1:
+        goal = goal.repeat((len(x),1))
+    logits = forward(model, x, goal=goal, **forward_kwargs)
 
     ## pluck the logits at the final step and scale by temperature
     ## [ batch_size x vocab_size ]
@@ -139,12 +144,18 @@ def sample(model, x, temperature=1.0, topk=None, cdf=None, **forward_kwargs):
 def sample_n(model, x, N, **sample_kwargs):
     batch_size = len(x)
 
+    sample_kwargs = sample_kwargs.copy()
+    goal = sample_kwargs['goal']
+    del sample_kwargs['goal']
+    if goal.shape[0] == 1:
+        goal = goal.repeat((len(x),1))
+
     ## keep track of probabilities from each step;
     ## `vocab_size + 1` accounts for termination token
     probs = torch.zeros(batch_size, N, model.vocab_size + 1, device=x.device)
 
     for n in range(N):
-        indices, p = sample(model, x, **sample_kwargs)
+        indices, p = sample(model, x, goal=goal, **sample_kwargs)
 
         ## append to the sequence and continue
         ## [ batch_size x (sequence_length + n) ]

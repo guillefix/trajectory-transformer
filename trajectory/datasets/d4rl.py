@@ -38,6 +38,10 @@ def qlearning_dataset_with_timeouts(env, dataset=None, terminate_on_end=False, *
     reward_ = []
     done_ = []
     realdone_ = []
+    if 'discrete_conds' in dataset:
+        discrete_conds = dataset['discrete_conds']
+    else:
+        discrete_conds = None
 
     episode_step = 0
     for i in range(N-1):
@@ -55,7 +59,7 @@ def qlearning_dataset_with_timeouts(env, dataset=None, terminate_on_end=False, *
         if (not terminate_on_end) and final_timestep:
             # Skip this transition and don't apply terminals on the last step of an episode
             episode_step = 0
-            continue  
+            continue
         if done_bool or final_timestep:
             episode_step = 0
 
@@ -74,6 +78,7 @@ def qlearning_dataset_with_timeouts(env, dataset=None, terminate_on_end=False, *
         'rewards': np.array(reward_)[:,None],
         'terminals': np.array(done_)[:,None],
         'realterminals': np.array(realdone_)[:,None],
+        'discrete_conds': discrete_conds,
     }
 
 def load_environment(name):

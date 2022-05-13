@@ -50,6 +50,9 @@ class QuantileDiscretizer:
 		assert (error <= self.diffs.max(axis=0)).all()
 		## re-discretize reconstruction and make sure it is the same as original indices
 		indices_2 = self.discretize(recon)
+		# print(np.where(indices != indices_2))
+		# print(X[231,69])
+		# print(recon[231,69])
 		assert (indices == indices_2).all()
 		## reconstruct random indices
 		## @TODO: remove duplicate thresholds

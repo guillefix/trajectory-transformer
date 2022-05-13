@@ -4,6 +4,7 @@ from os.path import join
 
 import trajectory.utils as utils
 import trajectory.datasets as datasets
+import trajectory.datasets.lang_robot
 from trajectory.search import (
     beam_plan,
     make_prefix,
@@ -36,7 +37,7 @@ gpt, gpt_epoch = utils.load_model(args.logbase, args.dataset, args.gpt_loadpath,
 #######################
 
 env = datasets.load_environment(args.dataset)
-renderer = utils.make_renderer(args)
+# renderer = utils.make_renderer(args)
 timer = utils.timer.Timer()
 
 discretizer = dataset.discretizer
@@ -67,7 +68,7 @@ for t in range(T):
 
     if t % args.plan_freq == 0:
         ## concatenate previous transitions and current observations to input to model
-        prefix = make_prefix(discretizer, context, observation, args.prefix_context)
+        prefix, lang_goal = make_prefix(discretizer, context, observation, args.prefix_context, lang_goal=env.lang_goal)
 
         ## sample sequence from model beginning with `prefix`
         sequence = beam_plan(
@@ -75,6 +76,7 @@ for t in range(T):
             args.horizon, args.beam_width, args.n_expand, observation_dim, action_dim,
             discount, args.max_context_transitions, verbose=args.verbose,
             k_obs=args.k_obs, k_act=args.k_act, cdf_obs=args.cdf_obs, cdf_act=args.cdf_act,
+            lang_goal=lang_goal
         )
 
     else:
@@ -91,7 +93,8 @@ for t in range(T):
 
     ## update return
     total_reward += reward
-    score = env.get_normalized_score(total_reward)
+    # score = env.get_normalized_score(total_reward)
+    score=reward
 
     ## update rollout observations and context transitions
     rollout.append(next_observation.copy())
@@ -103,13 +106,13 @@ for t in range(T):
     )
 
     ## visualization
-    if t % args.vis_freq == 0 or terminal or t == T:
-
-        ## save current plan
-        renderer.render_plan(join(args.savepath, f'{t}_plan.mp4'), sequence_recon, env.state_vector())
-
-        ## save rollout thus far
-        renderer.render_rollout(join(args.savepath, f'rollout.mp4'), rollout, fps=80)
+    # if t % args.vis_freq == 0 or terminal or t == T:
+    #
+    #     ## save current plan
+    #     renderer.render_plan(join(args.savepath, f'{t}_plan.mp4'), sequence_recon, env.state_vector())
+    #
+    #     ## save rollout thus far
+    #     renderer.render_rollout(join(args.savepath, f'rollout.mp4'), rollout, fps=80)
 
     if terminal: break
 
