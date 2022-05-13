@@ -57,8 +57,8 @@ base = {
         'renderer': 'Renderer',
 
         'plan_freq': 1,
-        'horizon': 15,
-        'beam_width': 128,
+        'horizon': 1,
+        'beam_width': 1,
         'n_expand': 2,
 
         'k_obs': 1,
@@ -100,7 +100,7 @@ halfcheetah_medium_expert_v2 = {
 ## if you leave the dictionary empty, it will use the base parameters
 hopper_medium_expert_v2 = hopper_medium_v2 = walker2d_medium_v2 = {}
 
-## hopper and wlaker2d are a little more sensitive to planning hyperparameters; 
+## hopper and wlaker2d are a little more sensitive to planning hyperparameters;
 ## proceed with caution when reducing the horizon or increasing the planning frequency
 
 hopper_medium_replay_v2 = {

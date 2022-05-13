@@ -339,9 +339,10 @@ class LanguageConditionalGPT(GPT):
     def get_block_size(self):
         return self.block_size - self.lang_len
 
-    def forward(self, idx, goal, targets=None, mask=None):
+    def forward(self, idx, goal=None, targets=None, mask=None):
         b, t = idx.size()
         assert t <= self.block_size, "Cannot forward, model block size is exhausted."
+        assert goal is not None
 
         #### goal
         # offset_goal = self.offset_tokens(goal)

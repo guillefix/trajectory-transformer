@@ -6,17 +6,19 @@ from ..utils.arrays import to_torch
 
 VALUE_PLACEHOLDER = 1e6
 
-def make_prefix(discretizer, context, obs, prefix_context=True):
+def make_prefix(discretizer, context, obs, prefix_context=True, lang_goal=None):
     observation_dim = obs.size
     obs_discrete = discretizer.discretize(obs, subslice=[0, observation_dim])
     obs_discrete = to_torch(obs_discrete, dtype=torch.long)
+    if lang_goal is not None:
+        lang_goal = to_torch(lang_goal, dtype=torch.long).unsqueeze(0)
 
     if prefix_context:
         prefix = torch.cat(context + [obs_discrete], dim=-1)
     else:
         prefix = obs_discrete
 
-    return prefix
+    return prefix, lang_goal
 
 def extract_actions(x, observation_dim, action_dim, t=None):
     assert x.shape[1] == observation_dim + action_dim + 2

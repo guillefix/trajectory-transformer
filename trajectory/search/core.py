@@ -16,6 +16,7 @@ def beam_plan(
     k_obs=None, k_act=None, k_rew=1,
     cdf_obs=None, cdf_act=None, cdf_rew=None,
     verbose=True, previous_actions=None,
+    lang_goal=None,
 ):
     '''
         x : tensor[ 1 x input_sequence_length ]
@@ -31,6 +32,7 @@ def beam_plan(
     sample_kwargs = {
         'max_block': max_block,
         'crop_increment': transition_dim,
+        'goal': lang_goal,
     }
 
     ## repeat input for search
