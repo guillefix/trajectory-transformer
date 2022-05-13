@@ -19,9 +19,9 @@ def suppress_output():
         with redirect_stderr(fnull) as err, redirect_stdout(fnull) as out:
             yield (err, out)
 
-with suppress_output():
-    ## d4rl prints out a variety of warnings
-    import d4rl
+#with suppress_output():
+#    ## d4rl prints out a variety of warnings
+#    import d4rl
 
 # def construct_dataloader(dataset, **kwargs):
 #     dataloader = torch.utils.data.DataLoader(dataset, shuffle=True, pin_memory=True, **kwargs)
@@ -38,6 +38,10 @@ def qlearning_dataset_with_timeouts(env, dataset=None, terminate_on_end=False, *
     reward_ = []
     done_ = []
     realdone_ = []
+    if 'discrete_conds' in dataset:
+        discrete_conds = dataset['discrete_conds']
+    else:
+        discrete_conds = None
 
     episode_step = 0
     for i in range(N-1):
@@ -55,7 +59,7 @@ def qlearning_dataset_with_timeouts(env, dataset=None, terminate_on_end=False, *
         if (not terminate_on_end) and final_timestep:
             # Skip this transition and don't apply terminals on the last step of an episode
             episode_step = 0
-            continue  
+            continue
         if done_bool or final_timestep:
             episode_step = 0
 
@@ -74,6 +78,7 @@ def qlearning_dataset_with_timeouts(env, dataset=None, terminate_on_end=False, *
         'rewards': np.array(reward_)[:,None],
         'terminals': np.array(done_)[:,None],
         'realterminals': np.array(realdone_)[:,None],
+        'discrete_conds': discrete_conds,
     }
 
 def load_environment(name):

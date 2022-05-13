@@ -325,3 +325,78 @@ class ConditionalGPT(GPT):
             loss = None
 
         return logits, loss
+
+class LanguageConditionalGPT(GPT):
+
+    def __init__(self, config):
+        ## increase block size by `observation_dim` because we are prepending a goal observation
+        ## to the sequence
+        config.block_size += config.lang_len
+        super().__init__(config)
+        self.goal_emb = nn.Embedding(config.lang_vocab_size, config.n_embd)
+        self.lang_len = config.lang_len
+
+    def get_block_size(self):
+        return self.block_size - self.lang_len
+
+    def forward(self, idx, goal, targets=None, mask=None):
+        b, t = idx.size()
+        assert t <= self.block_size, "Cannot forward, model block size is exhausted."
+
+        #### goal
+        # offset_goal = self.offset_tokens(goal)
+        # print(goal)
+        goal_embeddings = self.goal_emb(goal)
+        #### /goal
+
+        offset_idx = self.offset_tokens(idx)
+        ## [ B x T x embedding_dim ]
+        # forward the GPT model
+        token_embeddings = self.tok_emb(offset_idx) # each index maps to a (learnable) vector
+        ## [ 1 x T x embedding_dim ]
+        position_embeddings = self.pos_emb[:, :t, :] # each position maps to a (learnable) vector
+        ## [ B x T x embedding_dim ]
+        x = self.drop(token_embeddings + position_embeddings)
+
+        #### goal
+        ## [ B + (obs_dim + T) x embedding_dim ]
+        gx = torch.cat([goal_embeddings, x], dim=1)
+        gx = self.blocks(gx)
+        x = gx[:, self.lang_len:]
+        #### /goal
+
+        ## [ B x T x embedding_dim ]
+        x = self.ln_f(x)
+
+        ## [ (B * T' / transition_dim) x transition_dim x embedding_dim ]
+        x_pad, n_pad = self.pad_to_full_observation(x)
+        ## [ (B * T' / transition_dim) x transition_dim x (vocab_size + 1) ]
+        logits = self.head(x_pad)
+        ## [ B x T' x (vocab_size + 1) ]
+        logits = logits.reshape(b, t + n_pad, self.vocab_size + 1)
+        ## [ B x T x (vocab_size + 1) ]
+        logits = logits[:,:t]
+
+        # if we are given some desired targets also calculate the loss
+        if targets is not None:
+            loss = F.cross_entropy(logits.reshape(-1, logits.size(-1)), targets.view(-1), reduction='none')
+            if self.action_weight != 1 or self.reward_weight != 1 or self.value_weight != 1:
+                #### make weights
+                n_states = int(np.ceil(t / self.transition_dim))
+                weights = torch.cat([
+                    torch.ones(self.observation_dim, device=idx.device),
+                    torch.ones(self.action_dim, device=idx.device) * self.action_weight,
+                    torch.ones(1, device=idx.device) * self.reward_weight,
+                    torch.ones(1, device=idx.device) * self.value_weight,
+                ])
+                ## [ t + 1]
+                weights = weights.repeat(n_states)
+                ## [ b x t ]
+                weights = weights[1:].repeat(b, 1)
+                ####
+                loss = loss * weights.view(-1)
+            loss = (loss * mask.view(-1)).mean()
+        else:
+            loss = None
+
+        return logits, loss

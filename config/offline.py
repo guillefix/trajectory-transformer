@@ -19,8 +19,8 @@ base = {
     'train': {
         'N': 100,
         'discount': 0.99,
-        'n_layer': 4,
-        'n_head': 4,
+        'n_layer': 6,
+        'n_head': 8,
 
         ## number of epochs for a 1M-size dataset; n_epochs = 1M / dataset_size * n_epochs_ref
         'n_epochs_ref': 50,
@@ -45,8 +45,8 @@ base = {
 
         'discretizer': 'QuantileDiscretizer',
         'action_weight': 5,
-        'reward_weight': 1,
-        'value_weight': 1,
+        'reward_weight': 0,
+        'value_weight': 0,
     },
 
     'plan': {

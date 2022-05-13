@@ -46,11 +46,12 @@ class SequenceDataset(torch.utils.data.Dataset):
     def __init__(self, env, sequence_length=250, step=10, discount=0.99, max_path_length=1000, penalty=None, device='cuda:0'):
         print(f'[ datasets/sequence ] Sequence length: {sequence_length} | Step: {step} | Max path length: {max_path_length}')
         self.env = env = load_environment(env) if type(env) is str else env
+        self.env = env
         self.sequence_length = sequence_length
         self.step = step
         self.max_path_length = max_path_length
         self.device = device
-        
+
         print(f'[ datasets/sequence ] Loading...', end=' ', flush=True)
         dataset = qlearning_dataset_with_timeouts(env.unwrapped, terminate_on_end=True)
         print('✓')
@@ -67,6 +68,8 @@ class SequenceDataset(torch.utils.data.Dataset):
         rewards = dataset['rewards']
         terminals = dataset['terminals']
         realterminals = dataset['realterminals']
+        discrete_conds = dataset['discrete_conds']
+        self.discrete_conds = discrete_conds
 
         self.observations_raw = observations
         self.actions_raw = actions
@@ -113,6 +116,10 @@ class SequenceDataset(torch.utils.data.Dataset):
 
         self.indices = np.array(indices)
         self.observation_dim = observations.shape[1]
+        if discrete_conds is not None:
+            self.disc_cond_dim = discrete_conds.shape[1]
+        else:
+            self.disc_cond_dim = 0
         self.action_dim = actions.shape[1]
         self.joined_dim = self.joined_raw.shape[1]
 
@@ -162,6 +169,7 @@ class DiscretizedDataset(SequenceDataset):
         mask = torch.ones(joined_discrete.shape, dtype=torch.bool)
         mask[traj_inds > self.max_path_length - self.step] = 0
 
+
         ## flatten everything
         joined_discrete = joined_discrete.view(-1)
         mask = mask.view(-1)
@@ -176,7 +184,7 @@ class GoalDataset(DiscretizedDataset):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        pdb.set_trace()
+        #pdb.set_trace()
 
     def __getitem__(self, idx):
         X, Y, mask = super().__getitem__(idx)
@@ -189,5 +197,24 @@ class GoalDataset(DiscretizedDataset):
         goal = self.joined_segmented[path_ind, path_length-1, :self.observation_dim]
         goal_discrete = self.discretizer.discretize(goal, subslice=(0, self.observation_dim))
         goal_discrete = to_torch(goal_discrete, device='cpu', dtype=torch.long).contiguous().view(-1)
+
+        return X, goal_discrete, Y, mask
+
+class LanguageGoalDataset(DiscretizedDataset):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        #pdb.set_trace()
+
+    def __getitem__(self, idx):
+        X, Y, mask = super().__getitem__(idx)
+
+        ## get path length for looking up the last transition in the trajcetory
+        path_ind, start_ind, end_ind = self.indices[idx]
+        path_length = self.path_lengths[path_ind]
+
+        ## get discrete_conds
+        if self.discrete_conds is not None:
+            goal_discrete = to_torch(self.discrete_conds[path_ind], device='cpu', dtype=torch.long)
 
         return X, goal_discrete, Y, mask

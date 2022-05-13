@@ -5,7 +5,8 @@ import pdb
 
 import trajectory.utils as utils
 import trajectory.datasets as datasets
-from trajectory.models.transformers import GPT
+import trajectory.datasets.lang_robot
+from trajectory.models.transformers import GPT, LanguageConditionalGPT
 
 
 class Parser(utils.Parser):
@@ -27,12 +28,13 @@ env = datasets.load_environment(args.dataset)
 sequence_length = args.subsampled_sequence_length * args.step
 
 dataset_config = utils.Config(
-    datasets.DiscretizedDataset,
+    datasets.LanguageGoalDataset,
     savepath=(args.savepath, 'data_config.pkl'),
     env=args.dataset,
     N=args.N,
     penalty=args.termination_penalty,
     sequence_length=sequence_length,
+    max_path_length=3000,
     step=args.step,
     discount=args.discount,
     discretizer=args.discretizer,
@@ -41,6 +43,7 @@ dataset_config = utils.Config(
 dataset = dataset_config()
 obs_dim = dataset.observation_dim
 act_dim = dataset.action_dim
+disc_cond_dim = dataset.disc_cond_dim
 transition_dim = dataset.joined_dim
 
 #######################
@@ -55,14 +58,14 @@ print(
 )
 
 model_config = utils.Config(
-    GPT,
+    LanguageConditionalGPT,
     savepath=(args.savepath, 'model_config.pkl'),
     ## discretization
-    vocab_size=args.N, block_size=block_size,
+    vocab_size=args.N, block_size=block_size, lang_vocab_size=67,
     ## architecture
     n_layer=args.n_layer, n_head=args.n_head, n_embd=args.n_embd*args.n_head,
     ## dimensions
-    observation_dim=obs_dim, action_dim=act_dim, transition_dim=transition_dim,
+    observation_dim=obs_dim, action_dim=act_dim, transition_dim=transition_dim, lang_len=disc_cond_dim,
     ## loss weighting
     action_weight=args.action_weight, reward_weight=args.reward_weight, value_weight=args.value_weight,
     ## dropout probabilities
