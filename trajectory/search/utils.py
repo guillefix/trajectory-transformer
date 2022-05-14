@@ -10,6 +10,7 @@ def make_prefix(discretizer, context, obs, prefix_context=True, lang_goal=None):
     observation_dim = obs.size
     obs_discrete = discretizer.discretize(obs, subslice=[0, observation_dim])
     obs_discrete = to_torch(obs_discrete, dtype=torch.long)
+    # import pdb; pdb.set_trace()
     if lang_goal is not None:
         lang_goal = to_torch(lang_goal, dtype=torch.long).unsqueeze(0)
 

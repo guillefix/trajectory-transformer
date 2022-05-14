@@ -23,6 +23,7 @@ def beam_plan(
     '''
 
     inp = x.clone()
+    # import pdb; pdb.set_trace()
 
     # convert max number of transitions to max number of tokens
     transition_dim = observation_dim + action_dim + REWARD_DIM + VALUE_DIM
@@ -51,6 +52,7 @@ def beam_plan(
         rewards = rewards.repeat(n_expand, 1)
 
         ## sample actions
+        # import pdb; pdb.set_trace()
         x, _ = sample_n(model, x, action_dim, topk=k_act, cdf=cdf_act, **sample_kwargs)
 
         ## sample reward and value estimate
@@ -89,6 +91,7 @@ def beam_plan(
     progress.stamp()
 
     ## [ batch_size x (n_context + n_steps) x transition_dim ]
+    # import pdb; pdb.set_trace()
     x = x.view(beam_width, -1, transition_dim)
 
     ## crop out context transitions

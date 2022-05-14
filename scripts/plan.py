@@ -36,7 +36,8 @@ gpt, gpt_epoch = utils.load_model(args.logbase, args.dataset, args.gpt_loadpath,
 ####### dataset #######
 #######################
 
-env = datasets.load_environment(args.dataset)
+env = datasets.load_environment(args.dataset) #TODO: set max_len from the dataset
+env.render()
 # renderer = utils.make_renderer(args)
 timer = utils.timer.Timer()
 
@@ -64,10 +65,12 @@ context = []
 T = env.max_episode_steps
 for t in range(T):
 
+    # import pdb; pdb.set_trace()
     observation = preprocess_fn(observation)
 
     if t % args.plan_freq == 0:
         ## concatenate previous transitions and current observations to input to model
+        # import pdb; pdb.set_trace()
         prefix, lang_goal = make_prefix(discretizer, context, observation, args.prefix_context, lang_goal=env.lang_goal)
 
         ## sample sequence from model beginning with `prefix`

@@ -361,6 +361,7 @@ class LanguageConditionalGPT(GPT):
 
         #### goal
         ## [ B + (obs_dim + T) x embedding_dim ]
+        # import pdb; pdb.set_trace()
         gx = torch.cat([goal_embeddings, x], dim=1)
         gx = self.blocks(gx)
         x = gx[:, self.lang_len:]
@@ -373,6 +374,7 @@ class LanguageConditionalGPT(GPT):
         x_pad, n_pad = self.pad_to_full_observation(x)
         ## [ (B * T' / transition_dim) x transition_dim x (vocab_size + 1) ]
         logits = self.head(x_pad)
+        # import pdb; pdb.set_trace()
         ## [ B x T' x (vocab_size + 1) ]
         logits = logits.reshape(b, t + n_pad, self.vocab_size + 1)
         ## [ B x T x (vocab_size + 1) ]

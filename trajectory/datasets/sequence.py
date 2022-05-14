@@ -70,6 +70,7 @@ class SequenceDataset(torch.utils.data.Dataset):
         realterminals = dataset['realterminals']
         discrete_conds = dataset['discrete_conds']
         self.discrete_conds = discrete_conds
+        # import pdb; pdb.set_trace()
 
         self.observations_raw = observations
         self.actions_raw = actions
@@ -136,7 +137,7 @@ class SequenceDataset(torch.utils.data.Dataset):
 
     def __len__(self):
         return len(self.indices)
-
+        # return 100
 
 class DiscretizedDataset(SequenceDataset):
 
@@ -216,5 +217,6 @@ class LanguageGoalDataset(DiscretizedDataset):
         ## get discrete_conds
         if self.discrete_conds is not None:
             goal_discrete = to_torch(self.discrete_conds[path_ind], device='cpu', dtype=torch.long)
+            # import pdb; pdb.set_trace()
 
         return X, goal_discrete, Y, mask

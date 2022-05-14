@@ -61,7 +61,7 @@ model_config = utils.Config(
     LanguageConditionalGPT,
     savepath=(args.savepath, 'model_config.pkl'),
     ## discretization
-    vocab_size=args.N, block_size=block_size, lang_vocab_size=67,
+    vocab_size=args.N, block_size=block_size, lang_vocab_size=73,
     ## architecture
     n_layer=args.n_layer, n_head=args.n_head, n_embd=args.n_embd*args.n_head,
     ## dimensions

@@ -38,4 +38,3 @@ export C_INCLUDE_PATH=$C_INCLUDE_PATH:/gpfswork/rech/imi/usc19dv/glew-2.1.0/incl
 srun python scripts/train.py --dataset LangRobot-v1 --batch_size 32
 #srun python scripts/train.py --dataset LangRobot-v0 --batch_size 64
 #srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64
-#srun ./script_train_dev.sh $exp
