@@ -21,12 +21,20 @@ def run(args):
     acts_all = None
     terminals_all = None
     disc_cond_all = None
+    rewards_all = None
 
     for filename in filenames:
         actss = np.load(processed_data_folder+filename+"."+args.act_mod+".npy")
         obss_cont = np.load(processed_data_folder+filename+"."+args.obs_mod+".npy")
         # obss_cont = np.concatenate([obss_cont[:,:11], obss_cont[:,12:]], axis=1)
         disc_cond = np.load(processed_data_folder+filename+"."+args.disc_mod+".npy")
+        if "trim" in args.obs_mod:
+            times_to_go = np.load(processed_data_folder+filename+".npz.times_to_go.npy")[25:] # the others are trimmed
+        else:
+            times_to_go = np.load(processed_data_folder+filename+".npz.times_to_go.npy")
+        # print(times_to_go.shape)
+        # print(obss_cont.shape)
+        rewards = np.where(times_to_go == 0, 1, 0).squeeze()
         if len(disc_cond.shape) == 2:
             disc_cond = disc_cond[0]
         if len(disc_cond.shape) == 3:
@@ -58,15 +66,22 @@ def run(args):
         else:
             disc_cond_all = np.concatenate([disc_cond_all, np.expand_dims(disc_cond,0)])
 
+        if rewards_all is None:
+            rewards_all = rewards
+        else:
+            rewards_all = np.concatenate([rewards_all, rewards])
+
     print(obs_all.shape)
     print(acts_all.shape)
     print(terminals_all.shape)
     print(disc_cond_all.shape)
+    print(rewards_all.shape)
 
     np.save(processed_data_folder+"obs_all_augmented.npy", obs_all)
     np.save(processed_data_folder+"acts_all.npy", acts_all)
     np.save(processed_data_folder+"terminals_all.npy", terminals_all)
     np.save(processed_data_folder+"disc_cond_all.npy", disc_cond_all)
+    np.save(processed_data_folder+"rewards_all.npy", rewards_all)
 
     # np.save(root_folder+"obs_all_augmented_smol.npy", obs_all)
     # np.save(root_folder+"acts_all_smol.npy", acts_all)

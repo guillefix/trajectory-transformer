@@ -52,11 +52,12 @@ class LangRobotEnv(ExtendedUR5PlayAbsRPY1Obj):
         acts_all = np.load(root_folder+"acts_all.npy")
         terminals_all = np.load(root_folder+"terminals_all.npy")
         disc_cond_all = np.load(root_folder+"disc_cond_all.npy")
+        rewards_all = np.load(root_folder+"rewards_all.npy")
         n=acts_all.shape[0]
         dataset['actions'] = acts_all
         dataset['discrete_conds'] = disc_cond_all
         dataset['observations'] = obs_all
-        dataset['rewards'] = np.zeros((n,)) #TODO: add rewards
+        dataset['rewards'] = rewards_all
         dataset['terminals'] = np.full((n,),False)
         dataset['timeouts'] = terminals_all
         return dataset
