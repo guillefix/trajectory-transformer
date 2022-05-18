@@ -80,7 +80,9 @@ model.to(args.device)
 #######################
 
 warmup_tokens = len(dataset) * block_size ## number of tokens seen per epoch
-final_tokens = 20 * warmup_tokens
+# final_tokens = 20 * warmup_tokens
+n_epochs = int(1e6 / len(dataset) * args.n_epochs_ref)
+final_tokens = len(dataset) * n_epochs * args.batch_size
 
 trainer_config = utils.Config(
     utils.Trainer,
@@ -107,7 +109,6 @@ trainer = trainer_config()
 #######################
 
 ## scale number of epochs to keep number of updates constant
-n_epochs = int(1e6 / len(dataset) * args.n_epochs_ref)
 save_freq = int(n_epochs // args.n_saves)
 # save_freq = 1
 # from torch.utils.data import Subset

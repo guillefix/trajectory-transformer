@@ -15,6 +15,7 @@ from trajectory.search import (
 class Parser(utils.Parser):
     dataset: str = 'halfcheetah-medium-expert-v2'
     config: str = 'config.offline'
+    goal_str: str = ''
 
 #######################
 ######## setup ########
@@ -53,7 +54,8 @@ preprocess_fn = datasets.get_preprocess_fn(env.name)
 ###### main loop ######
 #######################
 
-observation = env.reset()
+# observation = env.reset()
+observation = env.reset(goal_str=args.goal_str)
 total_reward = 0
 
 ## observations for rendering
