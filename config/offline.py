@@ -42,6 +42,8 @@ base = {
         'subsampled_sequence_length': 10,
         'termination_penalty': -100,
         'exp_name': gpt_expname,
+        'gpt_loadpath': gpt_expname,
+        'gpt_epoch': 'latest',
 
         'discretizer': 'QuantileDiscretizer',
         'action_weight': 5,

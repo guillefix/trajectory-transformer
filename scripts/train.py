@@ -12,6 +12,7 @@ from trajectory.models.transformers import GPT, LanguageConditionalGPT
 class Parser(utils.Parser):
     dataset: str = 'halfcheetah-medium-expert-v2'
     config: str = 'config.offline'
+    continue_train: bool
 
 #######################
 ######## setup ########
@@ -57,22 +58,26 @@ print(
     f'(observation: {obs_dim}, action: {act_dim}) | Block size: {block_size}'
 )
 
-model_config = utils.Config(
-    LanguageConditionalGPT,
-    savepath=(args.savepath, 'model_config.pkl'),
-    ## discretization
-    vocab_size=args.N, block_size=block_size, lang_vocab_size=73,
-    ## architecture
-    n_layer=args.n_layer, n_head=args.n_head, n_embd=args.n_embd*args.n_head,
-    ## dimensions
-    observation_dim=obs_dim, action_dim=act_dim, transition_dim=transition_dim, lang_len=disc_cond_dim,
-    ## loss weighting
-    action_weight=args.action_weight, reward_weight=args.reward_weight, value_weight=args.value_weight,
-    ## dropout probabilities
-    embd_pdrop=args.embd_pdrop, resid_pdrop=args.resid_pdrop, attn_pdrop=args.attn_pdrop,
-)
-
-model = model_config()
+if args.continue_train:
+    model, starting_epoch = utils.load_model(args.logbase, args.dataset, args.gpt_loadpath,
+            epoch=args.gpt_epoch, device=args.device)
+else:
+    model_config = utils.Config(
+        LanguageConditionalGPT,
+        savepath=(args.savepath, 'model_config.pkl'),
+        ## discretization
+        vocab_size=args.N, block_size=block_size, lang_vocab_size=73,
+        ## architecture
+        n_layer=args.n_layer, n_head=args.n_head, n_embd=args.n_embd*args.n_head,
+        ## dimensions
+        observation_dim=obs_dim, action_dim=act_dim, transition_dim=transition_dim, lang_len=disc_cond_dim,
+        ## loss weighting
+        action_weight=args.action_weight, reward_weight=args.reward_weight, value_weight=args.value_weight,
+        ## dropout probabilities
+        embd_pdrop=args.embd_pdrop, resid_pdrop=args.resid_pdrop, attn_pdrop=args.attn_pdrop,
+    )
+    model = model_config()
+    starting_epoch = 0
 model.to(args.device)
 
 #######################
@@ -83,6 +88,7 @@ warmup_tokens = len(dataset) * block_size ## number of tokens seen per epoch
 # final_tokens = 20 * warmup_tokens
 n_epochs = int(1e6 / len(dataset) * args.n_epochs_ref)
 final_tokens = len(dataset) * n_epochs * args.batch_size
+starting_tokens = len(dataset) * starting_epoch * args.batch_size
 
 trainer_config = utils.Config(
     utils.Trainer,
@@ -100,6 +106,8 @@ trainer_config = utils.Config(
     ## dataloader
     num_workers=0,
     device=args.device,
+    starting_epoch=starting_epoch,
+    starting_tokens=starting_tokens
 )
 
 trainer = trainer_config()
