@@ -37,8 +37,8 @@ class LangRobotEnv(ExtendedUR5PlayAbsRPY1Obj):
     def _get_lang_goal(self):
         return self.tokens[:,0]
 
-    def reset(self, goal_str=None):
-        return super().reset(description=goal_str)
+    def reset(self, **kwargs):
+        return super().reset(**kwargs)
 
     lang_goal = property(fget=_get_lang_goal)
 

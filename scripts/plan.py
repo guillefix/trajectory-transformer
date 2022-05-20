@@ -1,6 +1,9 @@
 import json
 import pdb
 from os.path import join
+import os
+from constants import *
+from pathlib import Path
 
 import trajectory.utils as utils
 import trajectory.datasets as datasets
@@ -12,118 +15,177 @@ from trajectory.search import (
     update_context,
 )
 
-class Parser(utils.Parser):
-    dataset: str = 'halfcheetah-medium-expert-v2'
-    config: str = 'config.offline'
-    goal_str: str = ''
 
-#######################
-######## setup ########
-#######################
+def run(args):
 
-args = Parser().parse_args('plan')
+    #######################
+    ####### models ########
+    #######################
 
-#######################
-####### models ########
-#######################
+    dataset = utils.load_from_config(args.logbase, args.dataset, args.gpt_loadpath,
+            'data_config.pkl')
 
-dataset = utils.load_from_config(args.logbase, args.dataset, args.gpt_loadpath,
-        'data_config.pkl')
+    gpt, gpt_epoch = utils.load_model(args.logbase, args.dataset, args.gpt_loadpath,
+            epoch=args.gpt_epoch, device=args.device)
 
-gpt, gpt_epoch = utils.load_model(args.logbase, args.dataset, args.gpt_loadpath,
-        epoch=args.gpt_epoch, device=args.device)
+    #######################
+    ####### demo data #######
+    #######################
+    goal_str = args.goal_str
+    traj_data = None
+    if args.session_id is not None and args.rec_id is not None:
+        if os.path.exists(data_folder+args.session_id+"/obs_act_etc/"+args.rec_id+"/data.npz"):
+            traj_data = np.load(data_folder+session_id+"/obs_act_etc/"+args.rec_id+"/data.npz", allow_pickle=True)
+        elif os.path.exists(data_folder+args.session_id+"/"+args.rec_id+"/data.npz"):
+            traj_data = np.load(data_folder+session_id+"/"+rec_id+"/data.npz", allow_pickle=True)
+            print(traj_data)
+        if args.goal_str is None:
+            goal_str = str(traj_data['goal_str'][0])
+    print(goal_str)
 
-#######################
-####### dataset #######
-#######################
+    #######################
+    ####### dataset #######
+    #######################
 
-env = datasets.load_environment(args.dataset) #TODO: set max_len from the dataset
-env.render()
-# renderer = utils.make_renderer(args)
-timer = utils.timer.Timer()
+    env = datasets.load_environment(args.dataset) #TODO: set max_len from the dataset
+    if args.render:
+        env.render()
+    # renderer = utils.make_renderer(args)
+    timer = utils.timer.Timer()
 
-discretizer = dataset.discretizer
-discount = dataset.discount
-observation_dim = dataset.observation_dim
-action_dim = dataset.action_dim
+    discretizer = dataset.discretizer
+    discount = dataset.discount
+    observation_dim = dataset.observation_dim
+    action_dim = dataset.action_dim
 
-value_fn = lambda x: discretizer.value_fn(x, args.percentile)
-preprocess_fn = datasets.get_preprocess_fn(env.name)
+    value_fn = lambda x: discretizer.value_fn(x, args.percentile)
+    preprocess_fn = datasets.get_preprocess_fn(env.name)
 
-#######################
-###### main loop ######
-#######################
+    #######################
+    ###### main loop ######
+    #######################
 
-# observation = env.reset()
-observation = env.reset(goal_str=args.goal_str)
-total_reward = 0
+    # observation = env.reset()
+    objects = traj_data['obj_stuff'][0] if args.restore_objects else None
+    if traj_data is not None:
+        observation = env.reset(o=traj_data["obs"][0], info_reset=None, description=goal_str, joint_poses=traj_data["joint_poses"][0], objects=objects, restore_objs=args.restore_objects)
+    else:
+        observation = env.reset(o=None, info_reset=None, description=goal_str, joint_poses=None, objects=objects, restore_objs=args.restore_objects)
+    total_reward = 0
 
-## observations for rendering
-rollout = [observation.copy()]
+    if goal_str is None:
+        goal_str = env.goal_str
 
-## previous (tokenized) transitions for conditioning transformer
-context = []
+    ## observations for rendering
+    rollout = [observation.copy()]
 
-T = env.max_episode_steps
-for t in range(T):
+    ## previous (tokenized) transitions for conditioning transformer
+    context = []
 
-    # import pdb; pdb.set_trace()
-    observation = preprocess_fn(observation)
+    # T = env.max_episode_steps
+    assert args.max_episode_length < env.max_episode_length
+    T = args.max_episode_length
+    for t in range(T):
 
-    if t % args.plan_freq == 0:
-        ## concatenate previous transitions and current observations to input to model
         # import pdb; pdb.set_trace()
-        prefix, lang_goal = make_prefix(discretizer, context, observation, args.prefix_context, lang_goal=env.lang_goal)
+        observation = preprocess_fn(observation)
 
-        ## sample sequence from model beginning with `prefix`
-        sequence = beam_plan(
-            gpt, value_fn, prefix,
-            args.horizon, args.beam_width, args.n_expand, observation_dim, action_dim,
-            discount, args.max_context_transitions, verbose=args.verbose,
-            k_obs=args.k_obs, k_act=args.k_act, cdf_obs=args.cdf_obs, cdf_act=args.cdf_act,
-            lang_goal=lang_goal
+        if t % args.plan_freq == 0:
+            ## concatenate previous transitions and current observations to input to model
+            # import pdb; pdb.set_trace()
+            prefix, lang_goal = make_prefix(discretizer, context, observation, args.prefix_context, lang_goal=env.lang_goal)
+
+            ## sample sequence from model beginning with `prefix`
+            sequence = beam_plan(
+                gpt, value_fn, prefix,
+                args.horizon, args.beam_width, args.n_expand, observation_dim, action_dim,
+                discount, args.max_context_transitions, verbose=args.verbose,
+                k_obs=args.k_obs, k_act=args.k_act, cdf_obs=args.cdf_obs, cdf_act=args.cdf_act,
+                lang_goal=lang_goal
+            )
+
+        else:
+            sequence = sequence[1:]
+
+        ## [ horizon x transition_dim ] convert sampled tokens to continuous trajectory
+        sequence_recon = discretizer.reconstruct(sequence)
+
+        ## [ action_dim ] index into sampled trajectory to grab first action
+        action = extract_actions(sequence_recon, observation_dim, action_dim, t=0)
+
+        ## execute action in environment
+        next_observation, reward, terminal, _ = env.step(action)
+
+        success = reward > 0
+
+        print(goal_str+": ",success)
+        achieved_goal_end = success
+
+        ## update return
+        total_reward += reward
+        # score = env.get_normalized_score(total_reward)
+        score=reward
+
+        ## update rollout observations and context transitions
+        rollout.append(next_observation.copy())
+        context = update_context(context, discretizer, observation, action, reward, args.max_context_transitions)
+
+        print(
+            f'[ plan ] t: {t} / {T} | r: {reward:.2f} | R: {total_reward:.2f} | score: {score:.4f} | '
+            f'time: {timer():.2f} | {args.dataset} | {args.exp_name} | {args.suffix}\n'
         )
 
-    else:
-        sequence = sequence[1:]
+        ## visualization
+        # if t % args.vis_freq == 0 or terminal or t == T:
+        #
+        #     ## save current plan
+        #     renderer.render_plan(join(args.savepath, f'{t}_plan.mp4'), sequence_recon, env.state_vector())
+        #
+        #     ## save rollout thus far
+        #     renderer.render_rollout(join(args.savepath, f'rollout.mp4'), rollout, fps=80)
 
-    ## [ horizon x transition_dim ] convert sampled tokens to continuous trajectory
-    sequence_recon = discretizer.reconstruct(sequence)
+        if terminal: break
 
-    ## [ action_dim ] index into sampled trajectory to grab first action
-    action = extract_actions(sequence_recon, observation_dim, action_dim, t=0)
+        observation = next_observation
 
-    ## execute action in environment
-    next_observation, reward, terminal, _ = env.step(action)
+    ## save result as a json file
+    json_path = join(args.savepath, 'rollout.json')
+    json_data = {'score': score, 'step': t, 'return': total_reward, 'term': terminal, 'gpt_epoch': gpt_epoch}
+    json.dump(json_data, open(json_path, 'w'), indent=2, sort_keys=True)
+    if args.save_eval_results:
+        varying_args = args.varying_args.split(",")
+        if not Path(args.savepath+"/results").is_dir():
+            os.mkdir(args.savepath+"/results")
+        filename = args.savepath+"/results/"+"eval_"
+        args_dict = vars(args)
+        for k in varying_args:
+            filename += str(args_dict[k])+"_"
+        filename += "_".join(goal_str.split(" "))+".txt"
+        if os.path.exists(filename):
+            with open(filename, "a") as f:
+                f.write(str(achieved_goal_end)+","+str(t)+"\n")
+        else:
+            with open(filename, "w") as f:
+                f.write("achieved_goal_end,num_steps"+"\n")
+                f.write(str(achieved_goal_end)+","+str(t)+"\n")
 
-    ## update return
-    total_reward += reward
-    # score = env.get_normalized_score(total_reward)
-    score=reward
+if __name__=="__main__":
+    class Parser(utils.Parser):
+        dataset: str = 'halfcheetah-medium-expert-v2'
+        config: str = 'config.offline'
+        goal_str: str = None
+        save_eval_results: bool = False
+        restore_objects: bool = False
+        render: bool = False
+        session_id: str = None
+        rec_id: str = None
+        varying_args: str = 'session_id,rec_id'
+        max_episode_length: int = 3000
 
-    ## update rollout observations and context transitions
-    rollout.append(next_observation.copy())
-    context = update_context(context, discretizer, observation, action, reward, args.max_context_transitions)
+    #######################
+    ######## setup ########
+    #######################
 
-    print(
-        f'[ plan ] t: {t} / {T} | r: {reward:.2f} | R: {total_reward:.2f} | score: {score:.4f} | '
-        f'time: {timer():.2f} | {args.dataset} | {args.exp_name} | {args.suffix}\n'
-    )
+    args = Parser().parse_args('plan')
 
-    ## visualization
-    # if t % args.vis_freq == 0 or terminal or t == T:
-    #
-    #     ## save current plan
-    #     renderer.render_plan(join(args.savepath, f'{t}_plan.mp4'), sequence_recon, env.state_vector())
-    #
-    #     ## save rollout thus far
-    #     renderer.render_rollout(join(args.savepath, f'rollout.mp4'), rollout, fps=80)
-
-    if terminal: break
-
-    observation = next_observation
-
-## save result as a json file
-json_path = join(args.savepath, 'rollout.json')
-json_data = {'score': score, 'step': t, 'return': total_reward, 'term': terminal, 'gpt_epoch': gpt_epoch}
-json.dump(json_data, open(json_path, 'w'), indent=2, sort_keys=True)
+    run(args)

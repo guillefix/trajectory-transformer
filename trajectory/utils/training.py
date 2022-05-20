@@ -14,8 +14,8 @@ class Trainer:
         self.config = config
         self.device = config.device
 
-        self.n_epochs = 0
-        self.n_tokens = 0 # counter used for learning rate decay
+        self.n_epochs = config.starting_epoch
+        self.n_tokens = config.starting_tokens # counter used for learning rate decay
         self.optimizer = None
 
     def get_optimizer(self, model):
