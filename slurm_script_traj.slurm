@@ -34,7 +34,15 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/linkhome/rech/genini01/usc19dv/.mujoco/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:/gpfswork/rech/imi/usc19dv/glew-2.1.0/include:/usr/include
 
+export ROOT_FOLDER=/gpfswork/rech/imi/usc19dv/captionRLenv/
+export DATA_FOLDER=/gpfsscratch/rech/imi/usc19dv/data/UR5/
+export PROCESSED_DATA_FOLDER=/gpfsscratch/rech/imi/usc19dv/data/UR5_processed/
+export ROOT_DIR_MODEL=/gpfswork/rech/imi/usc19dv/mt-lightning/
+export PRETRAINED_FOLDER=/gpfswork/rech/imi/usc19dv/mt-lightning/training/experiments/
+export ROOT_GENERATED_DATA=/gpfsscratch/rech/imi/usc19dv/data/
+
+
 #exp=$1
-srun python scripts/train.py --dataset LangRobot-v1 --batch_size 32
+srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big --n_layer 16 --n_embed 800
 #srun python scripts/train.py --dataset LangRobot-v0 --batch_size 64
 #srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64
