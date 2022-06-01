@@ -12,7 +12,7 @@ from trajectory.models.transformers import GPT, LanguageConditionalGPT
 class Parser(utils.Parser):
     dataset: str = 'halfcheetah-medium-expert-v2'
     config: str = 'config.offline'
-    continue_train: bool
+    continue_train: bool = False
 
 #######################
 ######## setup ########
@@ -130,7 +130,8 @@ for epoch in range(n_epochs):
     trainer.train(model, dataset)
 
     ## get greatest multiple of `save_freq` less than or equal to `save_epoch`
-    save_epoch = (epoch + 1) // save_freq * save_freq
+    #save_epoch = (epoch + 1) // save_freq * save_freq
+    save_epoch = epoch
     statepath = os.path.join(args.savepath, f'state_{save_epoch}.pt')
     print(f'Saving model to {statepath}')
 

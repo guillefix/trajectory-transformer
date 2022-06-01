@@ -17,6 +17,8 @@
 #SBATCH -A imi@gpu
 #SBATCH -C v100-32g
 #SBATCH --exclusive
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=guillefix@gmail.com
 
 export MASTER_PORT=1234
 slurm_nodes=$(scontrol show hostnames $SLURM_JOB_NODELIST)
@@ -43,6 +45,7 @@ export ROOT_GENERATED_DATA=/gpfsscratch/rech/imi/usc19dv/data/
 
 
 #exp=$1
-srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big --n_layer 16 --n_embed 800
+srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big2 --n_layer 12 --n_embd 100 --continue_train
+#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big3 --n_layer 12 --n_embd 256 --continue_train
 #srun python scripts/train.py --dataset LangRobot-v0 --batch_size 64
 #srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64

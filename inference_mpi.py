@@ -36,7 +36,7 @@ del common_args["num_repeats"]
 del common_args["sample_goals"]
 del common_args["num_tasks"]
 if args.base_filenames_file is not None:
-    with open(args.base_filenames_file, "r") as f:
+    with open(processed_data_folder+args.base_filenames_file, "r") as f:
         filenames = [x[:-1] for x in f.readlines()] # to remove new lines
     num_tasks = len(filenames)
     tasks = args.num_repeats*list(map(lambda x: {**common_args, "session_id": x.split("_")[1], "rec_id": x.split("_")[5]}, filenames))
