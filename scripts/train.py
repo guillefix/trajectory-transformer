@@ -40,7 +40,7 @@ dataset_config = utils.Config(
     step=args.step,
     discount=args.discount,
     discretizer=args.discretizer,
-    dataset__size=args.dataset_size,
+    dataset_size=args.dataset_size,
 )
 
 dataset = dataset_config()
