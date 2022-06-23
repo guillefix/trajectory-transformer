@@ -39,7 +39,9 @@ class Trainer:
 
             losses = []
             timer = Timer()
+            print(len(loader))
             for it, batch in enumerate(loader):
+                print(it)
 
                 batch = to(batch, self.device)
 

@@ -69,7 +69,7 @@ class SequenceDataset(torch.utils.data.Dataset):
         rewards = dataset['rewards'][:dataset_size]
         terminals = dataset['terminals'][:dataset_size]
         realterminals = dataset['realterminals'][:dataset_size]
-        path_num = len(np.nonzero(terminals == 1)[0])
+        path_num = len(np.nonzero(terminals == 1)[0]) + 1
         # print(path_num)
         print("AWOOOOOOOO",path_num)
         discrete_conds = dataset['discrete_conds'][:path_num]
