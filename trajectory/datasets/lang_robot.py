@@ -26,9 +26,9 @@ class LangRobotEnv(ExtendedUR5PlayAbsRPY1Obj):
     """Custom Environment that follows gym interface"""
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, dataset_size=-1):
+    def __init__(self):
         super(LangRobotEnv, self).__init__(simple_obs=True, obs_scaler=obs_scaler, acts_scaler=acts_scaler, desc_max_len=10, obs_mod="obs_cont_single_nocol_noarm_trim_scaled")
-        self.dataset_size = dataset_size
+        # print(dataset_size)
 
     def get_metrics(self, num_episodes):
         metrics = []
@@ -52,11 +52,14 @@ class LangRobotEnv(ExtendedUR5PlayAbsRPY1Obj):
         #terminals_all = np.load(root_folder+"terminals_all_smol.npy")
         #disc_cond_all = np.load(root_folder+"disc_cond_all_smol.npy")
 
-        obs_all = np.load(root_folder+"obs_all_augmented.npy")[:self.dataset_size]
-        acts_all = np.load(root_folder+"acts_all.npy")[:self.dataset_size]
-        terminals_all = np.load(root_folder+"terminals_all.npy")[:self.dataset_size]
-        disc_cond_all = np.load(root_folder+"disc_cond_all.npy")[:self.dataset_size]
-        rewards_all = np.load(root_folder+"rewards_all.npy")[:self.dataset_size]
+        obs_all = np.load(root_folder+"obs_all_augmented.npy")
+        acts_all = np.load(root_folder+"acts_all.npy")
+        # print(self.dataset_size)
+        # print(acts_all.shape)
+        terminals_all = np.load(root_folder+"terminals_all.npy")
+        disc_cond_all = np.load(root_folder+"disc_cond_all.npy")
+        # print(disc_cond_all.shape)
+        rewards_all = np.load(root_folder+"rewards_all.npy")
         n=acts_all.shape[0]
         dataset['actions'] = acts_all
         dataset['discrete_conds'] = disc_cond_all

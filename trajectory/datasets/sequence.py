@@ -43,7 +43,7 @@ def segment(observations, terminals, max_path_length):
 
 class SequenceDataset(torch.utils.data.Dataset):
 
-    def __init__(self, env, sequence_length=250, step=10, discount=0.99, max_path_length=1000, penalty=None, device='cuda:0', **kwargs):
+    def __init__(self, env, sequence_length=250, step=10, discount=0.99, max_path_length=1000, penalty=None, device='cuda:0', dataset_size=-1):
         print(f'[ datasets/sequence ] Sequence length: {sequence_length} | Step: {step} | Max path length: {max_path_length}')
         self.env = env = load_environment(env) if type(env) is str else env
         self.env = env
@@ -51,6 +51,7 @@ class SequenceDataset(torch.utils.data.Dataset):
         self.step = step
         self.max_path_length = max_path_length
         self.device = device
+        self.dataset_size = dataset_size
 
         print(f'[ datasets/sequence ] Loading...', end=' ', flush=True)
         dataset = qlearning_dataset_with_timeouts(env.unwrapped, terminate_on_end=True)
@@ -62,13 +63,16 @@ class SequenceDataset(torch.utils.data.Dataset):
             dataset = preprocess_fn(dataset)
         ##
 
-        observations = dataset['observations']
-        actions = dataset['actions']
-        next_observations = dataset['next_observations']
-        rewards = dataset['rewards']
-        terminals = dataset['terminals']
-        realterminals = dataset['realterminals']
-        discrete_conds = dataset['discrete_conds']
+        observations = dataset['observations'][:dataset_size]
+        actions = dataset['actions'][:dataset_size]
+        next_observations = dataset['next_observations'][:dataset_size]
+        rewards = dataset['rewards'][:dataset_size]
+        terminals = dataset['terminals'][:dataset_size]
+        realterminals = dataset['realterminals'][:dataset_size]
+        path_num = len(np.nonzero(terminals == 1)[0])
+        # print(path_num)
+        print("AWOOOOOOOO",path_num)
+        discrete_conds = dataset['discrete_conds'][:path_num]
         self.discrete_conds = discrete_conds
         # import pdb; pdb.set_trace()
 
@@ -87,6 +91,7 @@ class SequenceDataset(torch.utils.data.Dataset):
         ## segment
         print(f'[ datasets/sequence ] Segmenting...', end=' ', flush=True)
         self.joined_segmented, self.termination_flags, self.path_lengths = segment(self.joined_raw, terminals, max_path_length)
+        # print(self.path_lengths)
         self.rewards_segmented, *_ = segment(self.rewards_raw, terminals, max_path_length)
         print('✓')
 

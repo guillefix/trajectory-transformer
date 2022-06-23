@@ -1,6 +1,7 @@
 import numpy as np
 import torch
 import pdb
+from math import floor, ceil
 
 from .arrays import to_np, to_torch
 
@@ -14,9 +15,13 @@ class QuantileDiscretizer:
 		obs_sorted = np.sort(data, axis=0)
 		thresholds = obs_sorted[::n_points_per_bin, :]
 		maxs = data.max(axis=0, keepdims=True)
+		mins = data.min(axis=0, keepdims=True)
+		extend_top = maxs + np.linspace(0,(maxs[0]-mins[0])/2,ceil((N-len(thresholds)+1)/2))
+		extend_bot = mins - np.linspace(0,(maxs[0]-mins[0])/2,floor((N-len(thresholds)+1)/2))
 
 		## [ (N + 1) x dim ]
-		self.thresholds = np.concatenate([thresholds, maxs], axis=0)
+		self.thresholds = np.concatenate([extend_bot, thresholds, extend_top], axis=0)
+		# print(self.thresholds.shape)
 
 		# threshold_inds = np.linspace(0, len(data) - 1, N + 1, dtype=int)
 		# obs_sorted = np.sort(data, axis=0)
@@ -105,6 +110,7 @@ class QuantileDiscretizer:
 
 		start, end = subslice
 		thresholds = self.thresholds[:, start:end]
+		# print(thresholds.shape)
 
 		left = np.take_along_axis(thresholds, indices, axis=0)
 		right = np.take_along_axis(thresholds, indices + 1, axis=0)
