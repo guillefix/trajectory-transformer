@@ -11,6 +11,7 @@ from trajectory.models.transformers import GPT, LanguageConditionalGPT
 
 class Parser(utils.Parser):
     dataset: str = 'halfcheetah-medium-expert-v2'
+    dataset_size: int = -1
     config: str = 'config.offline'
     continue_train: bool = False
 
@@ -39,6 +40,7 @@ dataset_config = utils.Config(
     step=args.step,
     discount=args.discount,
     discretizer=args.discretizer,
+    dataset__size=args.dataset_size,
 )
 
 dataset = dataset_config()
