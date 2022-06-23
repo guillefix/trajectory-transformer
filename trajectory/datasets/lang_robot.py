@@ -52,11 +52,11 @@ class LangRobotEnv(ExtendedUR5PlayAbsRPY1Obj):
         #terminals_all = np.load(root_folder+"terminals_all_smol.npy")
         #disc_cond_all = np.load(root_folder+"disc_cond_all_smol.npy")
 
-        obs_all = np.load(root_folder+"obs_all_augmented.npy")[:dataset_size]
-        acts_all = np.load(root_folder+"acts_all.npy")[:dataset_size]
-        terminals_all = np.load(root_folder+"terminals_all.npy")[:dataset_size]
-        disc_cond_all = np.load(root_folder+"disc_cond_all.npy")[:dataset_size]
-        rewards_all = np.load(root_folder+"rewards_all.npy")[:dataset_size]
+        obs_all = np.load(root_folder+"obs_all_augmented.npy")[:self.dataset_size]
+        acts_all = np.load(root_folder+"acts_all.npy")[:self.dataset_size]
+        terminals_all = np.load(root_folder+"terminals_all.npy")[:self.dataset_size]
+        disc_cond_all = np.load(root_folder+"disc_cond_all.npy")[:self.dataset_size]
+        rewards_all = np.load(root_folder+"rewards_all.npy")[:self.dataset_size]
         n=acts_all.shape[0]
         dataset['actions'] = acts_all
         dataset['discrete_conds'] = disc_cond_all
