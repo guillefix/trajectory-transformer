@@ -14,7 +14,7 @@
 #SBATCH --nodes=1 --ntasks-per-node=1 --cpus-per-task=12 --gres=gpu:1
 ##SBATCH --nodes=1 --ntasks-per-node=8 --cpus-per-task=4 --gres=gpu:8
 ##SBATCH --partition=gpu_p2
-#SBATCH -A imi@gpu
+#SBATCH -A imi@v100
 #SBATCH -C v100-32g
 #SBATCH --exclusive
 #SBATCH --mail-type=ALL
@@ -29,7 +29,7 @@ echo $MASTER_ADDRESS
 #module load tensorflow-gpu/py3/2.6.0
 module load pytorch-gpu/py3/1.8.0
 
-export PYTHONPATH=${PYTHONPATH}:/gpfswork/rech/imi/usc19dv/trajectory-transformer
+export PYTHONPATH=${PYTHONPATH}:/gpfswork/rech/imi/usc19dv/lib/python3.7/site-packages:/gpfsscratch/rech/imi/usc19dv/lib/python3.7/site-packages/
 set GIT_PYTHON_GIT_EXECUTABLE=/usr/bin/git
 export GIT_PYTHON_REFRESH=quiet
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/linkhome/rech/genini01/usc19dv/.mujoco/mujoco210/bin
@@ -45,7 +45,10 @@ export ROOT_GENERATED_DATA=/gpfsscratch/rech/imi/usc19dv/data/
 
 
 #exp=$1
-srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big2 --n_layer 12 --n_embd 100 --continue_train
-#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big3 --n_layer 12 --n_embd 256 --continue_train
+#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big2 --n_layer 12 --n_embd 100 --continue_train
+#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big_bigN --n_layer 12 --n_embd 256 --learning_rate 1e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512
+#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big_bigN --n_layer 12 --n_embd 256 --learning_rate 1e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512 --continue_train
+#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 2 --n_epochs_ref 1000 --exp_name long1_big_bigN --n_layer 8 --n_embd 128 --learning_rate 5e-7 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512
+srun python scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 2 --n_epochs_ref 1000 --exp_name long1_big_bigN --n_layer 8 --n_embd 128 --learning_rate 5e-7 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512
 #srun python scripts/train.py --dataset LangRobot-v0 --batch_size 64
 #srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64

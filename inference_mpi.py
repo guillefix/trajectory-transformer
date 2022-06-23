@@ -1,4 +1,4 @@
-from run_inference import run
+from scripts.plan import run
 from extra_utils import distribute_tasks
 import os
 import trajectory.utils as utils
@@ -12,12 +12,22 @@ class Parser(utils.Parser):
     sample_goals: bool = False #file listing demo sequence ids
     num_tasks: int = 1 #number of tasks (overriden by number of sequence ids if base_filenames_file is not None)
     num_repeats: int = 1 #number of times each demo should be used
+    dataset: str = 'halfcheetah-medium-expert-v2'
+    config: str = 'config.offline'
+    goal_str: str = None
+    save_eval_results: bool = False
+    restore_objects: bool = False
+    render: bool = False
+    session_id: str = None
+    rec_id: str = None
+    varying_args: str = 'session_id,rec_id'
+    max_episode_length: int = 3000
 
 #######################
 ######## setup ########
 #######################
 
-args = Parser().parse_args('train')
+args = Parser().parse_args('plan')
 
 ## distributing tasks accross nodes ##
 from mpi4py import MPI

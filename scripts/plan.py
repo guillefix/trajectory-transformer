@@ -4,6 +4,7 @@ from os.path import join
 import os
 from constants import *
 from pathlib import Path
+import numpy as np
 
 import trajectory.utils as utils
 import trajectory.datasets as datasets
@@ -35,9 +36,9 @@ def run(args):
     traj_data = None
     if args.session_id is not None and args.rec_id is not None:
         if os.path.exists(data_folder+args.session_id+"/obs_act_etc/"+args.rec_id+"/data.npz"):
-            traj_data = np.load(data_folder+session_id+"/obs_act_etc/"+args.rec_id+"/data.npz", allow_pickle=True)
+            traj_data = np.load(data_folder+args.session_id+"/obs_act_etc/"+args.rec_id+"/data.npz", allow_pickle=True)
         elif os.path.exists(data_folder+args.session_id+"/"+args.rec_id+"/data.npz"):
-            traj_data = np.load(data_folder+session_id+"/"+rec_id+"/data.npz", allow_pickle=True)
+            traj_data = np.load(data_folder+args.session_id+"/"+args.rec_id+"/data.npz", allow_pickle=True)
             print(traj_data)
         if args.goal_str is None:
             goal_str = str(traj_data['goal_str'][0])

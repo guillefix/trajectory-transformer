@@ -59,7 +59,7 @@ print(
 )
 
 if args.continue_train:
-    model, starting_epoch = utils.load_model(args.logbase, args.dataset, args.gpt_loadpath,
+    model, starting_epoch = utils.load_model(args.logbase, args.dataset, args.exp_name,
             epoch=args.gpt_epoch, device=args.device)
 else:
     model_config = utils.Config(
@@ -124,7 +124,7 @@ save_freq = int(n_epochs // args.n_saves)
 # dataset = Subset(dataset, np.arange(100))
 # dataset.N = dataset_old.N
 
-for epoch in range(n_epochs):
+for epoch in range(starting_epoch, starting_epoch+n_epochs):
     print(f'\nEpoch: {epoch} / {n_epochs} | {args.dataset} | {args.exp_name}')
 
     trainer.train(model, dataset)
