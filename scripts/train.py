@@ -15,6 +15,9 @@ class Parser(utils.Parser):
     num_workers: int = 0
     config: str = 'config.offline'
     continue_train: bool = False
+    not_predict_obs: bool = False
+    weight_decay: float = 0.1
+    obs_noise: float = 0.0
 
 #######################
 ######## setup ########
@@ -42,6 +45,8 @@ dataset_config = utils.Config(
     discount=args.discount,
     discretizer=args.discretizer,
     dataset_size=args.dataset_size,
+    not_predict_obs=args.not_predict_obs,
+    obs_noise=args.obs_noise,
 )
 
 dataset = dataset_config()
@@ -101,7 +106,7 @@ trainer_config = utils.Config(
     learning_rate=args.learning_rate,
     betas=(0.9, 0.95),
     grad_norm_clip=1.0,
-    weight_decay=0.1, # only applied on matmul weights
+    weight_decay=args.weight_decay, # only applied on matmul weights
     # learning rate decay: linear warmup followed by cosine decay to 10% of original
     lr_decay=args.lr_decay,
     warmup_tokens=warmup_tokens,
@@ -134,10 +139,11 @@ for epoch in range(starting_epoch, starting_epoch+n_epochs):
 
     ## get greatest multiple of `save_freq` less than or equal to `save_epoch`
     #save_epoch = (epoch + 1) // save_freq * save_freq
-    save_epoch = epoch
-    statepath = os.path.join(args.savepath, f'state_{save_epoch}.pt')
-    print(f'Saving model to {statepath}')
+    if epoch % save_freq == 0:
+        save_epoch = epoch
+        statepath = os.path.join(args.savepath, f'state_{save_epoch}.pt')
+        print(f'Saving model to {statepath}')
 
-    ## save state to disk
-    state = model.state_dict()
-    torch.save(state, statepath)
+        ## save state to disk
+        state = model.state_dict()
+        torch.save(state, statepath)

@@ -16,7 +16,7 @@ def beam_plan(
     k_obs=None, k_act=None, k_rew=1,
     cdf_obs=None, cdf_act=None, cdf_rew=None,
     verbose=True, previous_actions=None,
-    lang_goal=None,
+    lang_goal=None, temperature=1.0
 ):
     '''
         x : tensor[ 1 x input_sequence_length ]
@@ -34,6 +34,7 @@ def beam_plan(
         'max_block': max_block,
         'crop_increment': transition_dim,
         'goal': lang_goal,
+        'temperature': temperature,
     }
 
     ## repeat input for search
@@ -101,6 +102,7 @@ def beam_plan(
     ## return best sequence
     argmax = values.argmax()
     best_sequence = x[argmax]
+    # print(best_sequence)
 
     return best_sequence
 

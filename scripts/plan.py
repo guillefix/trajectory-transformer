@@ -5,6 +5,7 @@ import os
 from constants import *
 from pathlib import Path
 import numpy as np
+import torch
 
 import trajectory.utils as utils
 import trajectory.datasets as datasets
@@ -15,6 +16,7 @@ from trajectory.search import (
     extract_actions,
     update_context,
 )
+from trajectory.utils.arrays import to_torch
 
 
 def run(args):
@@ -42,6 +44,13 @@ def run(args):
             print(traj_data)
         if args.goal_str is None:
             goal_str = str(traj_data['goal_str'][0])
+
+        # init_obss = np.load(processed_data_folder+"UR5_"+args.session_id+"_obs_act_etc_"+args.rec_id+"_data.obs_cont_single_nocol_noarm_trim_scaled.npy")[0]
+        # traj_data_actss = np.load(processed_data_folder+"UR5_"+args.session_id+"_obs_act_etc_"+args.rec_id+"_data.acts_trim_scaled.npy")
+        traj_data_actss = np.load(processed_data_folder+"acts_all.npy")
+        traj_data_obss = np.load(processed_data_folder+"obs_all_augmented.npy")
+        init_obss = traj_data_obss[0]
+        init_actss = traj_data_actss[0:1]
     print(goal_str)
 
     #######################
@@ -70,6 +79,7 @@ def run(args):
     objects = traj_data['obj_stuff'][0] if args.restore_objects else None
     if traj_data is not None:
         observation = env.reset(o=traj_data["obs"][0], info_reset=None, description=goal_str, joint_poses=traj_data["joint_poses"][0], objects=objects, restore_objs=args.restore_objects)
+        observation = init_obss
     else:
         observation = env.reset(o=None, info_reset=None, description=goal_str, joint_poses=None, objects=objects, restore_objs=args.restore_objects)
     total_reward = 0
@@ -81,7 +91,16 @@ def run(args):
     rollout = [observation.copy()]
 
     ## previous (tokenized) transitions for conditioning transformer
+    # print(init_actss.shape)
+    # acts_dim = init_actss.size
+    # print(acts_dim)
+    # if args.session_id is not None and args.rec_id is not None:
+    #     acts_discrete = discretizer.discretize(init_actss, subslice=[0, action_dim])
+    #     acts_discrete = to_torch(acts_discrete, dtype=torch.long)
+    #     context = [acts_discrete]
+    # else:
     context = []
+    context = update_context(context, discretizer, preprocess_fn(observation), init_actss[0], 0.0, args.max_context_transitions)
 
     # T = env.max_episode_steps
     assert args.max_episode_length < env.max_episode_length
@@ -90,11 +109,26 @@ def run(args):
 
         # import pdb; pdb.set_trace()
         observation = preprocess_fn(observation)
+        # print(observation)
 
         if t % args.plan_freq == 0:
             ## concatenate previous transitions and current observations to input to model
             # import pdb; pdb.set_trace()
+            # print(observation)
+            # og_observation = observation
+            # if t<10:
+            # print(observation)
+            # observation=traj_data_obss[t]
+            # # observation += 1e-2*np.random.randn(*observation.shape)
+            # print(observation)
+            # print(observation-og_observation)
             prefix, lang_goal = make_prefix(discretizer, context, observation, args.prefix_context, lang_goal=env.lang_goal)
+            # observation += 1e-7*np.random.randn(*observation.shape)
+            # print(prefix)
+            # prefix, lang_goal = make_prefix(discretizer, context, observation, args.prefix_context, lang_goal=env.lang_goal)
+            # print(prefix)
+            # print(prefix)
+            # print(prefix.shape)
 
             ## sample sequence from model beginning with `prefix`
             sequence = beam_plan(
@@ -102,7 +136,7 @@ def run(args):
                 args.horizon, args.beam_width, args.n_expand, observation_dim, action_dim,
                 discount, args.max_context_transitions, verbose=args.verbose,
                 k_obs=args.k_obs, k_act=args.k_act, cdf_obs=args.cdf_obs, cdf_act=args.cdf_act,
-                lang_goal=lang_goal
+                lang_goal=lang_goal, temperature=args.temperature
             )
 
         else:
@@ -115,6 +149,12 @@ def run(args):
         action = extract_actions(sequence_recon, observation_dim, action_dim, t=0)
 
         ## execute action in environment
+        print(action)
+        # # # if t == 0:
+        # action = traj_data_actss[t]
+        # # action = discretizer.discretize(action, subslice=[observation_dim,observation_dim+action_dim])
+        # # action = discretizer.reconstruct(action, subslice=[observation_dim, observation_dim+action_dim])[0]
+        # print(action)
         next_observation, reward, terminal, _ = env.step(action)
 
         success = reward > 0
@@ -148,6 +188,7 @@ def run(args):
         if terminal: break
 
         observation = next_observation
+        # observation = init_obss
 
     ## save result as a json file
     json_path = join(args.savepath, 'rollout.json')
@@ -182,6 +223,7 @@ if __name__=="__main__":
         rec_id: str = None
         varying_args: str = 'session_id,rec_id'
         max_episode_length: int = 3000
+        temperature: float = 1.0
 
     #######################
     ######## setup ########

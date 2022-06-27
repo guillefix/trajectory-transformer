@@ -24,7 +24,7 @@ base = {
         'n_head': 8,
 
         ## number of epochs for a 1M-size dataset; n_epochs = 1M / dataset_size * n_epochs_ref
-        'n_epochs_ref': 50,
+        'n_epochs_ref': 50.0,
         'n_saves': 3,
         'logbase': logbase,
         'device': 'cuda',

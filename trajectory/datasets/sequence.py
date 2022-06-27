@@ -43,7 +43,7 @@ def segment(observations, terminals, max_path_length):
 
 class SequenceDataset(torch.utils.data.Dataset):
 
-    def __init__(self, env, sequence_length=250, step=10, discount=0.99, max_path_length=1000, penalty=None, device='cuda:0', dataset_size=-1):
+    def __init__(self, env, sequence_length=250, step=10, discount=0.99, max_path_length=1000, penalty=None, device='cuda:0', dataset_size=-1, not_predict_obs=False, obs_noise=0.0):
         print(f'[ datasets/sequence ] Sequence length: {sequence_length} | Step: {step} | Max path length: {max_path_length}')
         self.env = env = load_environment(env) if type(env) is str else env
         self.env = env
@@ -52,6 +52,8 @@ class SequenceDataset(torch.utils.data.Dataset):
         self.max_path_length = max_path_length
         self.device = device
         self.dataset_size = dataset_size
+        self.not_predict_obs = not_predict_obs
+        self.obs_noise = 0.0
 
         print(f'[ datasets/sequence ] Loading...', end=' ', flush=True)
         dataset = qlearning_dataset_with_timeouts(env.unwrapped, terminate_on_end=True)
@@ -110,8 +112,10 @@ class SequenceDataset(torch.utils.data.Dataset):
         values_raw = self.values_segmented.squeeze(axis=-1).reshape(-1)
         values_mask = ~self.termination_flags.reshape(-1)
         self.values_raw = values_raw[values_mask, None]
-        self.joined_raw = np.concatenate([self.joined_raw, self.rewards_raw, self.values_raw], axis=-1)
-        self.joined_segmented = np.concatenate([self.joined_segmented, self.rewards_segmented, self.values_segmented], axis=-1)
+        # self.joined_raw = np.concatenate([self.joined_raw, self.rewards_raw, self.values_raw], axis=-1)
+        self.joined_raw = np.concatenate([self.joined_raw, np.zeros_like(self.rewards_raw), np.zeros_like(self.values_raw)], axis=-1)
+        # self.joined_segmented = np.concatenate([self.joined_segmented, self.rewards_segmented, self.values_segmented], axis=-1)
+        self.joined_segmented = np.concatenate([self.joined_segmented, np.zeros_like(self.rewards_segmented), np.zeros_like(self.values_segmented)], axis=-1)
 
         ## get valid indices
         indices = []
@@ -157,7 +161,11 @@ class DiscretizedDataset(SequenceDataset):
         path_length = self.path_lengths[path_ind]
 
         joined = self.joined_segmented[path_ind, start_ind:end_ind:self.step]
+        if self.obs_noise > 0.0:
+            obss = joined[:,:,:self.observation_dim]
+            joined[:,:,:self.observation_dim] = obss + self.obs_noise * np.random.randn(*obss.shape)
         terminations = self.termination_flags[path_ind, start_ind:end_ind:self.step]
+        # print(terminations)
 
         joined_discrete = self.discretizer.discretize(joined)
 
@@ -172,8 +180,16 @@ class DiscretizedDataset(SequenceDataset):
         ## don't compute loss for parts of the prediction that extend
         ## beyond the max path length
         traj_inds = torch.arange(start_ind, end_ind, self.step)
+        # print(start_ind)
+        # print(end_ind)
+        # print(traj_inds)
         mask = torch.ones(joined_discrete.shape, dtype=torch.bool)
+        # print(traj_inds > self.max_path_length - self.step)
         mask[traj_inds > self.max_path_length - self.step] = 0
+        if self.not_predict_obs:
+            mask[:,:self.observation_dim] = 0
+        # print(mask)
+        # mask[]
 
 
         ## flatten everything
@@ -183,6 +199,11 @@ class DiscretizedDataset(SequenceDataset):
         X = joined_discrete[:-1]
         Y = joined_discrete[1:]
         mask = mask[:-1]
+        # print(Y.shape)
+        # print(mask.shape)
+        # print(Y)
+        # print(mask)
+        # import pdb; pdb.set_trace()
 
         return X, Y, mask
 
