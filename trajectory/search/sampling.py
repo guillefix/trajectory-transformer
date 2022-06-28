@@ -137,6 +137,7 @@ def sample(model, x, temperature=1.0, topk=None, cdf=None, **forward_kwargs):
     ## sample from the distribution
     ## [ batch_size x 1 ]
     indices = torch.multinomial(probs, num_samples=1)
+    # print(indices)
 
     return indices, raw_probs
 

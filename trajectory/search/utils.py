@@ -8,6 +8,8 @@ VALUE_PLACEHOLDER = 1e6
 
 def make_prefix(discretizer, context, obs, prefix_context=True, lang_goal=None):
     observation_dim = obs.size
+    # print(observation_dim)
+    # print(obs.shape)
     obs_discrete = discretizer.discretize(obs, subslice=[0, observation_dim])
     obs_discrete = to_torch(obs_discrete, dtype=torch.long)
     # import pdb; pdb.set_trace()
