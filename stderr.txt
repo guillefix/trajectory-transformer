@@ -1,0 +1,979 @@
+[D 00:15:19.534 NotebookApp] Searching ['/gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer', '/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter', '/linkhome/rech/genini01/usc19dv/.local/etc/jupyter', '/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter', '/usr/local/etc/jupyter', '/etc/jupyter'] for config files
+[D 00:15:19.534 NotebookApp] Looking for jupyter_config in /etc/jupyter
+[D 00:15:19.534 NotebookApp] Looking for jupyter_config in /usr/local/etc/jupyter
+[D 00:15:19.534 NotebookApp] Looking for jupyter_config in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter
+[D 00:15:19.553 NotebookApp] Looking for jupyter_config in /linkhome/rech/genini01/usc19dv/.local/etc/jupyter
+[D 00:15:19.554 NotebookApp] Looking for jupyter_config in /gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter
+[D 00:15:19.554 NotebookApp] Looking for jupyter_config in /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer
+[D 00:15:19.554 NotebookApp] Looking for jupyter_notebook_config in /etc/jupyter
+[D 00:15:19.555 NotebookApp] Looking for jupyter_notebook_config in /usr/local/etc/jupyter
+[D 00:15:19.555 NotebookApp] Looking for jupyter_notebook_config in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter
+[D 00:15:19.556 NotebookApp] Loaded config file: /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/jupyter_notebook_config.json
+[D 00:15:19.556 NotebookApp] Looking for jupyter_notebook_config in /linkhome/rech/genini01/usc19dv/.local/etc/jupyter
+[D 00:15:19.556 NotebookApp] Looking for jupyter_notebook_config in /gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter
+[D 00:15:19.556 NotebookApp] Loaded config file: /gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/jupyter_notebook_config.py
+[D 00:15:19.557 NotebookApp] Loaded config file: /gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/jupyter_notebook_config.json
+[D 00:15:19.557 NotebookApp] Looking for jupyter_notebook_config in /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer
+[D 00:15:20.018 NotebookApp] Paths used for configuration of jupyter_notebook_config: 
+    	/etc/jupyter/jupyter_notebook_config.json
+[D 00:15:20.019 NotebookApp] Paths used for configuration of jupyter_notebook_config: 
+    	/usr/local/etc/jupyter/jupyter_notebook_config.json
+[D 00:15:20.027 NotebookApp] Paths used for configuration of jupyter_notebook_config: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/jupyter_notebook_config.d/jupyterlab.json
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/jupyter_notebook_config.json
+[D 00:15:20.038 NotebookApp] Paths used for configuration of jupyter_notebook_config: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/jupyter_notebook_config.json
+[D 00:15:20.038 NotebookApp] Paths used for configuration of jupyter_notebook_config: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/jupyter_notebook_config.json
+[D 00:15:29.728 NotebookApp] [jupyter_nbextensions_configurator] Loading 0.4.1
+[D 00:15:29.728 NotebookApp] [jupyter_nbextensions_configurator]   Editing templates path to add /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/templates
+[D 00:15:29.728 NotebookApp] [jupyter_nbextensions_configurator]   Editing nbextensions path to add /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static
+[D 00:15:29.728 NotebookApp] [jupyter_nbextensions_configurator]   Adding new handlers
+[I 00:15:29.729 NotebookApp] [jupyter_nbextensions_configurator] enabled 0.4.1
+[I 00:15:49.692 NotebookApp] jupyter_tensorboard extension loaded.
+[W 2022-07-13 00:15:52.458 LabApp] 'notebook_dir' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'notebook_dir' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'notebook_dir' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'base_url' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'certfile' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'keyfile' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'keyfile' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-07-13 00:15:52.463 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2022-07-13 00:15:52.470 LabApp] JupyterLab extension loaded from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyterlab
+[I 2022-07-13 00:15:52.470 LabApp] JupyterLab application directory is /gpfs7kro/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/lab
+[I 00:15:52.478 NotebookApp] Serving notebooks from local directory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1
+[I 00:15:52.478 NotebookApp] Jupyter Notebook 6.4.6 is running at:
+[I 00:15:52.479 NotebookApp] https://jean-zay1:8010/jean-zay1_8010/
+[I 00:15:52.479 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 00:42:41.840 NotebookApp] 302 GET /jean-zay1_8010/ (10.148.0.38) 34.710000ms
+[D 00:42:41.965 NotebookApp] Using contents: services/contents
+[D 00:42:42.172 NotebookApp] Path base/images/favicon.ico served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/base/images/favicon.ico
+[D 00:42:42.262 NotebookApp] Path components/jquery-ui/themes/smoothness/jquery-ui.min.css served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/jquery-ui/themes/smoothness/jquery-ui.min.css
+[D 00:42:42.305 NotebookApp] Path components/jquery-typeahead/dist/jquery.typeahead.min.css served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/jquery-typeahead/dist/jquery.typeahead.min.css
+[D 00:42:42.353 NotebookApp] Path style/style.min.css served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/style/style.min.css
+[D 00:42:42.392 NotebookApp] Path components/es6-promise/promise.min.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/es6-promise/promise.min.js
+[D 00:42:42.410 NotebookApp] Path components/react/react.production.min.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/react/react.production.min.js
+[D 00:42:42.432 NotebookApp] Path components/react/react-dom.production.min.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/react/react-dom.production.min.js
+[D 00:42:42.465 NotebookApp] Path components/create-react-class/index.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/create-react-class/index.js
+[D 00:42:42.485 NotebookApp] Path components/requirejs/require.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/requirejs/require.js
+[D 00:42:42.507 NotebookApp] Path base/images/logo.png served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/base/images/logo.png
+[D 00:42:42.532 NotebookApp] Path tree/js/main.min.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/tree/js/main.min.js
+[D 00:42:42.555 NotebookApp] 200 GET /jean-zay1_8010/tree? (10.148.0.38) 685.540000ms
+[D 00:42:42.870 NotebookApp] 200 GET /jean-zay1_8010/static/components/jquery-ui/themes/smoothness/jquery-ui.min.css?v=fb45616eef2c454960f91fcd2a04efeda84cfacccf0c5d741ba2793dc1dbd6d3ab01aaae6485222945774c7d7a9a2e9fb87e0d8ef1ea96893aa6906147a371bb (10.148.0.38) 1.380000ms
+[D 00:42:42.944 NotebookApp] 200 GET /jean-zay1_8010/static/components/jquery-typeahead/dist/jquery.typeahead.min.css?v=5edf53bf6bb9c3b1ddafd8594825a7e2ed621f19423e569c985162742f63911c09eba2c529f8fb47aebf27fafdfe287d563347f58c1126b278189a18871b6a9a (10.148.0.38) 1.080000ms
+[D 00:42:43.021 NotebookApp] Path custom.css served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/custom/custom.css
+[D 00:42:43.021 NotebookApp] 200 GET /jean-zay1_8010/custom/custom.css (10.148.0.38) 23.050000ms
+[D 00:42:43.060 NotebookApp] 200 GET /jean-zay1_8010/static/components/es6-promise/promise.min.js?v=bea335d74136a63ae1b5130f5ac9a50c6256a5f435e6e09fef599491a84d834a8b0f011ca3eaaca3b4ab6a2da2d3e1191567a2f171e60da1d10e5b9d52f84184 (10.148.0.38) 2.400000ms
+[D 00:42:43.061 NotebookApp] 200 GET /jean-zay1_8010/static/components/react/react.production.min.js?v=9a0aaf84a316c8bedd6c2ff7d5b5e0a13f8f84ec02442346cba0b842c6c81a6bf6176e64f3675c2ebf357cb5bb048e0b527bd39377c95681d22468da3d5de735 (10.148.0.38) 1.080000ms
+[D 00:42:43.063 NotebookApp] 200 GET /jean-zay1_8010/static/style/style.min.css?v=b092d0a2da5df36f2b073ddb4eafcd6c8094c4fa21b6dcd3f7185ce16c04ad66424083d785b81607a26b4b85b69a560574ada7db75262c886655f99d651c482e (10.148.0.38) 1.550000ms
+[D 00:42:43.064 NotebookApp] 200 GET /jean-zay1_8010/static/components/react/react-dom.production.min.js?v=6fc58c1c4736868ff84f57bd8b85f2bdb985993a9392718f3b4af4bfa10fb4efba2b4ddd68644bd2a8daf0619a3844944c9c43f8528364a1aa6fc01ec1b8ae84 (10.148.0.38) 1.140000ms
+[D 00:42:43.079 NotebookApp] 200 GET /jean-zay1_8010/static/components/create-react-class/index.js?v=894ad57246e682b4cfbe7cd5e408dcd6b38d06af4de4f3425991e2676fdc2ef1732cbd19903104198878ae77de12a1996de3e7da3a467fb226bdda8f4618faec (10.148.0.38) 0.900000ms
+[D 00:42:43.127 NotebookApp] 200 GET /jean-zay1_8010/static/components/requirejs/require.js?v=d37b48bb2137faa0ab98157e240c084dd5b1b5e74911723aa1d1f04c928c2a03dedf922d049e4815f7e5a369faa2e6b6a1000aae958b7953b5cc60411154f593 (10.148.0.38) 1.180000ms
+[D 00:42:43.189 NotebookApp] 200 GET /jean-zay1_8010/static/tree/js/main.min.js?v=421a131a2c530e769753ba189dc4560a613e13a6779a49096cf8af772d3aaf4c4cef39855ddcbc0478249f4fc8997eb4cb9bacedc92786dcf0ad8e9fa7592355 (10.148.0.38) 3.270000ms
+[D 00:42:43.219 NotebookApp] 200 GET /jean-zay1_8010/static/base/images/logo.png?v=a2a176ee3cee251ffddf5fa21fe8e43727a9e5f87a06f9c91ad7b776d9e9d3d5e0159c16cc188a3965e00375fb4bc336c16067c688f5040c0c2d4bfdb852a9e4 (10.148.0.38) 1.200000ms
+[D 00:42:43.366 NotebookApp] Path services/contents.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/services/contents.js
+[D 00:42:43.374 NotebookApp] 200 GET /jean-zay1_8010/static/services/contents.js?v=20220713001520 (10.148.0.38) 30.250000ms
+[D 00:42:43.466 NotebookApp] Paths used for configuration of tree: 
+    	/etc/jupyter/nbconfig/tree.json
+[D 00:42:43.467 NotebookApp] Paths used for configuration of tree: 
+    	/usr/local/etc/jupyter/nbconfig/tree.json
+[D 00:42:43.506 NotebookApp] Paths used for configuration of tree: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/tree.json
+[D 00:42:43.538 NotebookApp] Paths used for configuration of tree: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/tree.json
+[D 00:42:43.557 NotebookApp] Paths used for configuration of tree: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/tree.json
+[D 00:42:43.568 NotebookApp] 200 GET /jean-zay1_8010/api/config/tree?_=1657665763288 (10.148.0.38) 102.830000ms
+[D 00:42:43.575 NotebookApp] Paths used for configuration of common: 
+    	/etc/jupyter/nbconfig/common.json
+[D 00:42:43.575 NotebookApp] Paths used for configuration of common: 
+    	/usr/local/etc/jupyter/nbconfig/common.json
+[D 00:42:43.575 NotebookApp] Paths used for configuration of common: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/common.json
+[D 00:42:43.576 NotebookApp] Paths used for configuration of common: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/common.json
+[D 00:42:43.576 NotebookApp] Paths used for configuration of common: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/common.json
+[D 00:42:43.577 NotebookApp] 200 GET /jean-zay1_8010/api/config/common?_=1657665763289 (10.148.0.38) 2.380000ms
+[D 00:42:43.578 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763290 (10.148.0.38) 0.780000ms
+[D 00:42:43.697 NotebookApp] Found kernel xpython-raw in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/kernels
+[D 00:42:43.698 NotebookApp] Found kernel xpython in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/kernels
+[D 00:42:43.698 NotebookApp] Found kernel python3 in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/kernels
+[D 00:42:49.140 NotebookApp] 200 GET /jean-zay1_8010/api/kernelspecs (10.148.0.38) 5562.780000ms
+[D 00:42:49.180 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763291 (10.148.0.38) 39.290000ms
+[D 00:42:49.218 NotebookApp] Path components/font-awesome/fonts/fontawesome-webfont.woff2 served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/font-awesome/fonts/fontawesome-webfont.woff2
+[D 00:42:49.237 NotebookApp] 200 GET /jean-zay1_8010/static/components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0 (10.148.0.38) 50.990000ms
+[D 00:42:49.237 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763292 (10.148.0.38) 50.930000ms
+[D 00:42:49.251 NotebookApp] Path custom.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/custom/custom.js
+[D 00:42:49.252 NotebookApp] 200 GET /jean-zay1_8010/custom/custom.js?v=20220713001520 (10.148.0.38) 65.740000ms
+[D 00:42:49.310 NotebookApp] Path nbextensions_configurator/tree_tab/main.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static/nbextensions_configurator/tree_tab/main.js
+[D 00:42:49.311 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/tree_tab/main.js?v=20220713001520 (10.148.0.38) 58.680000ms
+[D 00:42:49.341 NotebookApp] Path jupyter_tensorboard/tree.js served from /gpfs7kw/linkhome/rech/genini01/usc19dv/.local/share/jupyter/nbextensions/jupyter_tensorboard/tree.js
+[D 00:42:49.341 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/jupyter_tensorboard/tree.js?v=20220713001520 (10.148.0.38) 26.150000ms
+[D 00:42:49.460 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657665763293 (10.148.0.38) 118.200000ms
+[D 00:42:49.467 NotebookApp] Path nbextensions_configurator/main.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static/nbextensions_configurator/main.js
+[D 00:42:49.469 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/main.js?v=20220713001520 (10.148.0.38) 2.330000ms
+[D 00:42:49.486 NotebookApp] Path nbextensions_configurator/render/render.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static/nbextensions_configurator/render/render.js
+[D 00:42:49.487 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/render/render.js?v=20220713001520 (10.148.0.38) 20.710000ms
+[D 00:42:49.499 NotebookApp] Path jupyter_tensorboard/tensorboardlist.js served from /gpfs7kw/linkhome/rech/genini01/usc19dv/.local/share/jupyter/nbextensions/jupyter_tensorboard/tensorboardlist.js
+[D 00:42:49.513 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/jupyter_tensorboard/tensorboardlist.js?v=20220713001520 (10.148.0.38) 24.830000ms
+[D 00:42:49.649 NotebookApp] Path base/js/security.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/base/js/security.js
+[D 00:42:49.651 NotebookApp] 200 GET /jean-zay1_8010/static/base/js/security.js?v=20220713001520 (10.148.0.38) 30.740000ms
+[D 00:42:49.683 NotebookApp] Path notebook/js/mathjaxutils.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/notebook/js/mathjaxutils.js
+[D 00:42:49.684 NotebookApp] 200 GET /jean-zay1_8010/static/notebook/js/mathjaxutils.js?v=20220713001520 (10.148.0.38) 33.160000ms
+[D 00:42:49.694 NotebookApp] Path notebook/js/codemirror-ipython.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/notebook/js/codemirror-ipython.js
+[D 00:42:49.695 NotebookApp] 200 GET /jean-zay1_8010/static/notebook/js/codemirror-ipython.js?v=20220713001520 (10.148.0.38) 10.600000ms
+[D 00:42:49.734 NotebookApp] Path components/codemirror/addon/runmode/runmode.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/codemirror/addon/runmode/runmode.js
+[D 00:42:49.736 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/addon/runmode/runmode.js?v=20220713001520 (10.148.0.38) 50.750000ms
+[D 00:42:49.794 NotebookApp] Path components/codemirror/mode/gfm/gfm.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/codemirror/mode/gfm/gfm.js
+[D 00:42:49.820 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/gfm/gfm.js?v=20220713001520 (10.148.0.38) 135.250000ms
+[D 00:42:49.824 NotebookApp] Path notebook/js/codemirror-ipythongfm.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/notebook/js/codemirror-ipythongfm.js
+[D 00:42:49.825 NotebookApp] 200 GET /jean-zay1_8010/static/notebook/js/codemirror-ipythongfm.js?v=20220713001520 (10.148.0.38) 3.710000ms
+[D 00:42:49.841 NotebookApp] Path jupyter_tensorboard/style.css served from /gpfs7kw/linkhome/rech/genini01/usc19dv/.local/share/jupyter/nbextensions/jupyter_tensorboard/style.css
+[D 00:42:49.841 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/jupyter_tensorboard/style.css (10.148.0.38) 11.300000ms
+[D 00:42:49.842 NotebookApp] 200 GET /jean-zay1_8010/api/tensorboard?_=1657665763294 (10.148.0.38) 11.300000ms
+[D 00:42:49.850 NotebookApp] Path notebook/js/quickhelp.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/notebook/js/quickhelp.js
+[D 00:42:49.876 NotebookApp] 200 GET /jean-zay1_8010/static/notebook/js/quickhelp.js?v=20220713001520 (10.148.0.38) 44.920000ms
+[D 00:42:49.877 NotebookApp] Path nbextensions_configurator/kse_components.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static/nbextensions_configurator/kse_components.js
+[D 00:42:49.879 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/kse_components.js?v=20220713001520 (10.148.0.38) 2.450000ms
+[D 00:42:49.883 NotebookApp] Path components/jquery-ui/jquery-ui.min.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/jquery-ui/jquery-ui.min.js
+[D 00:42:49.903 NotebookApp] 200 GET /jean-zay1_8010/static/components/jquery-ui/jquery-ui.min.js?v=20220713001520 (10.148.0.38) 21.930000ms
+[D 00:42:49.928 NotebookApp] Path components/sanitizer/index.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/sanitizer/index.js
+[D 00:42:49.951 NotebookApp] Path components/codemirror/mode/python/python.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/codemirror/mode/python/python.js
+[D 00:42:49.956 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/python/python.js?v=20220713001520 (10.148.0.38) 46.370000ms
+[D 00:42:49.961 NotebookApp] 200 GET /jean-zay1_8010/static/components/sanitizer/index.js?v=20220713001520 (10.148.0.38) 51.280000ms
+[D 00:42:49.974 NotebookApp] Path base/js/mathjaxutils.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/base/js/mathjaxutils.js
+[D 00:42:49.977 NotebookApp] 200 GET /jean-zay1_8010/static/base/js/mathjaxutils.js?v=20220713001520 (10.148.0.38) 16.380000ms
+[D 00:42:49.986 NotebookApp] Path components/codemirror/mode/markdown/markdown.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/codemirror/mode/markdown/markdown.js
+[D 00:42:50.005 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/markdown/markdown.js?v=20220713001520 (10.148.0.38) 27.970000ms
+[D 00:42:50.025 NotebookApp] Path components/codemirror/addon/mode/overlay.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/codemirror/addon/mode/overlay.js
+[D 00:42:50.027 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/addon/mode/overlay.js?v=20220713001520 (10.148.0.38) 21.220000ms
+[D 00:42:50.038 NotebookApp] Path components/codemirror/addon/mode/multiplex.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/codemirror/addon/mode/multiplex.js
+[D 00:42:50.039 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/addon/mode/multiplex.js?v=20220713001520 (10.148.0.38) 8.480000ms
+[D 00:42:50.074 NotebookApp] Path components/codemirror/mode/stex/stex.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/codemirror/mode/stex/stex.js
+[D 00:42:50.094 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/stex/stex.js?v=20220713001520 (10.148.0.38) 52.450000ms
+[D 00:42:50.098 NotebookApp] Path nbextensions_configurator/quickhelp_shim.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static/nbextensions_configurator/quickhelp_shim.js
+[D 00:42:50.099 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/quickhelp_shim.js?v=20220713001520 (10.148.0.38) 2.540000ms
+[D 00:42:50.109 NotebookApp] Path components/codemirror/mode/xml/xml.js served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/notebook/static/components/codemirror/mode/xml/xml.js
+[D 00:42:50.125 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/xml/xml.js?v=20220713001520 (10.148.0.38) 26.000000ms
+[D 00:42:50.204 NotebookApp] Path nbextensions_configurator/main.css served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static/nbextensions_configurator/main.css
+[D 00:42:50.205 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/main.css?v=20220713001520 (10.148.0.38) 10.090000ms
+[D 00:42:50.211 NotebookApp] Path nbextensions_configurator/render/rendermd.css served from /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static/nbextensions_configurator/render/rendermd.css
+[D 00:42:50.212 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/render/rendermd.css?v=20220713001520 (10.148.0.38) 6.540000ms
+[D 00:42:50.215 NotebookApp] Paths used for configuration of notebook: 
+    	/etc/jupyter/nbconfig/notebook.json
+[D 00:42:50.216 NotebookApp] Paths used for configuration of notebook: 
+    	/usr/local/etc/jupyter/nbconfig/notebook.json
+[D 00:42:50.217 NotebookApp] Paths used for configuration of notebook: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/notebook.d/widgetsnbextension.json
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/notebook.json
+[D 00:42:50.232 NotebookApp] Paths used for configuration of notebook: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/notebook.json
+[D 00:42:50.232 NotebookApp] Paths used for configuration of notebook: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/notebook.json
+[D 00:42:50.246 NotebookApp] 200 GET /jean-zay1_8010/api/config/notebook?_=1657665763295 (10.148.0.38) 31.100000ms
+[D 00:42:50.252 NotebookApp] Paths used for configuration of notebook: 
+    	/etc/jupyter/nbconfig/notebook.json
+[D 00:42:50.253 NotebookApp] Paths used for configuration of notebook: 
+    	/usr/local/etc/jupyter/nbconfig/notebook.json
+[D 00:42:50.253 NotebookApp] Paths used for configuration of notebook: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/notebook.d/widgetsnbextension.json
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/notebook.json
+[D 00:42:50.254 NotebookApp] Paths used for configuration of notebook: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/notebook.json
+[D 00:42:50.254 NotebookApp] Paths used for configuration of notebook: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/notebook.json
+[D 00:42:50.255 NotebookApp] 200 GET /jean-zay1_8010/api/config/notebook?_=1657665763296 (10.148.0.38) 3.080000ms
+[D 00:42:50.255 NotebookApp] Paths used for configuration of edit: 
+    	/etc/jupyter/nbconfig/edit.json
+[D 00:42:50.255 NotebookApp] Paths used for configuration of edit: 
+    	/usr/local/etc/jupyter/nbconfig/edit.json
+[D 00:42:50.256 NotebookApp] Paths used for configuration of edit: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/edit.json
+[D 00:42:50.256 NotebookApp] Paths used for configuration of edit: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/edit.json
+[D 00:42:50.256 NotebookApp] Paths used for configuration of edit: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/edit.json
+[D 00:42:50.257 NotebookApp] 200 GET /jean-zay1_8010/api/config/edit?_=1657665763298 (10.148.0.38) 4.870000ms
+[D 00:42:50.258 NotebookApp] Paths used for configuration of edit: 
+    	/etc/jupyter/nbconfig/edit.json
+[D 00:42:50.258 NotebookApp] Paths used for configuration of edit: 
+    	/usr/local/etc/jupyter/nbconfig/edit.json
+[D 00:42:50.258 NotebookApp] Paths used for configuration of edit: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/edit.json
+[D 00:42:50.259 NotebookApp] Paths used for configuration of edit: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/edit.json
+[D 00:42:50.259 NotebookApp] Paths used for configuration of edit: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/edit.json
+[D 00:42:50.291 NotebookApp] 200 GET /jean-zay1_8010/api/config/edit?_=1657665763297 (10.148.0.38) 33.830000ms
+[D 00:42:50.295 NotebookApp] Paths used for configuration of tree: 
+    	/etc/jupyter/nbconfig/tree.json
+[D 00:42:50.296 NotebookApp] Paths used for configuration of tree: 
+    	/usr/local/etc/jupyter/nbconfig/tree.json
+[D 00:42:50.296 NotebookApp] Paths used for configuration of tree: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/tree.json
+[D 00:42:50.296 NotebookApp] Paths used for configuration of tree: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/tree.json
+[D 00:42:50.297 NotebookApp] Paths used for configuration of tree: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/tree.json
+[D 00:42:50.297 NotebookApp] 200 GET /jean-zay1_8010/api/config/tree?_=1657665763299 (10.148.0.38) 2.390000ms
+[D 00:42:50.298 NotebookApp] Paths used for configuration of tree: 
+    	/etc/jupyter/nbconfig/tree.json
+[D 00:42:50.298 NotebookApp] Paths used for configuration of tree: 
+    	/usr/local/etc/jupyter/nbconfig/tree.json
+[D 00:42:50.299 NotebookApp] Paths used for configuration of tree: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/tree.json
+[D 00:42:50.299 NotebookApp] Paths used for configuration of tree: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/tree.json
+[D 00:42:50.299 NotebookApp] Paths used for configuration of tree: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/tree.json
+[D 00:42:50.300 NotebookApp] 200 GET /jean-zay1_8010/api/config/tree?_=1657665763300 (10.148.0.38) 2.390000ms
+[D 00:42:50.303 NotebookApp] Paths used for configuration of common: 
+    	/etc/jupyter/nbconfig/common.json
+[D 00:42:50.303 NotebookApp] Paths used for configuration of common: 
+    	/usr/local/etc/jupyter/nbconfig/common.json
+[D 00:42:50.303 NotebookApp] Paths used for configuration of common: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/common.json
+[D 00:42:50.304 NotebookApp] Paths used for configuration of common: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/common.json
+[D 00:42:50.304 NotebookApp] Paths used for configuration of common: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/common.json
+[D 00:42:50.304 NotebookApp] 200 GET /jean-zay1_8010/api/config/common?_=1657665763301 (10.148.0.38) 2.130000ms
+[D 00:42:50.308 NotebookApp] Paths used for configuration of common: 
+    	/etc/jupyter/nbconfig/common.json
+[D 00:42:50.309 NotebookApp] Paths used for configuration of common: 
+    	/usr/local/etc/jupyter/nbconfig/common.json
+[D 00:42:50.309 NotebookApp] Paths used for configuration of common: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/common.json
+[D 00:42:50.309 NotebookApp] Paths used for configuration of common: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/common.json
+[D 00:42:50.310 NotebookApp] Paths used for configuration of common: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/common.json
+[D 00:42:50.310 NotebookApp] 200 GET /jean-zay1_8010/api/config/common?_=1657665763302 (10.148.0.38) 2.100000ms
+[D 00:42:50.371 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /gpfs7kw/linkhome/rech/genini01/usc19dv/.local/share/jupyter/nbextensions
+[D 00:42:50.372 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /linkhome/rech/genini01/usc19dv/.local/share/jupyter/nbextensions
+[D 00:42:50.372 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/nbextensions
+[D 00:42:50.397 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Equation Auto Numbering' in equation-numbering/info.yaml
+[D 00:42:50.399 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Execution Dependencies' in execution_dependencies/execution_dependencies.yml
+[D 00:42:50.418 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Select CodeMirror Keymap' in select_keymap/select_keymap.yaml
+[D 00:42:50.420 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'nbTranslate' in nbTranslate/nbTranslate.yaml
+[D 00:42:50.432 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Skip-Traceback' in skip-traceback/skip-traceback.yaml
+[D 00:42:50.434 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Tree Filter' in tree-filter/tree-filter.yaml
+[D 00:42:50.436 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Ruler in Editor' in ruler/ruler_editor.yaml
+[D 00:42:50.438 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Ruler' in ruler/ruler.yaml
+[D 00:42:50.446 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Hide input all' in hide_input_all/hide_input_all.yaml
+[D 00:42:50.447 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Initialization cells' in init_cell/init_cell.yaml
+[D 00:42:50.448 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Gist-it' in gist_it/gist_it.yaml
+[D 00:42:50.457 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Toggle all line numbers' in toggle_all_line_numbers/main.yaml
+[D 00:42:50.457 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'datestamper' in datestamper/main.yaml
+[D 00:42:50.470 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'highlighter' in highlighter/highlighter.yaml
+[D 00:42:50.472 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'spellchecker' in spellchecker/config.yaml
+[D 00:42:50.475 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Comment/Uncomment Hotkey' in comment-uncomment/comment-uncomment.yaml
+[D 00:42:50.476 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'CodeMirror mode extensions' in codemirror_mode_extensions/codemirror_mode_extensions.yaml
+[D 00:42:50.478 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension '2to3 Converter' in code_prettify/2to3.yaml
+[D 00:42:50.479 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Autopep8' in code_prettify/autopep8.yaml
+[D 00:42:50.481 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Code prettify' in code_prettify/code_prettify.yaml
+[D 00:42:50.483 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'isort formatter' in code_prettify/isort.yaml
+[D 00:42:50.484 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Code Font Size' in code_font_size/code_font_size.yaml
+[D 00:42:50.486 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'ScrollDown' in scroll_down/config.yaml
+[D 00:42:50.487 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Exercise' in exercise/exercise.yaml
+[D 00:42:50.489 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'AutoSaveTime' in autosavetime/autosavetime.yaml
+[D 00:42:50.490 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Python Markdown' in python-markdown/python-markdown.yaml
+[D 00:42:50.491 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Move selected cells' in move_selected_cells/move_selected_cells.yaml
+[D 00:42:50.496 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Variable Inspector' in varInspector/varInspector.yaml
+[D 00:42:50.497 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Hide Header' in hide_header/hide_header.yaml
+[D 00:42:50.498 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Hinterland' in hinterland/hinterland.yaml
+[D 00:42:50.500 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'zenmode' in zenmode/zenmode.yaml
+[D 00:42:50.503 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Runtools' in runtools/runtools.yaml
+[D 00:42:50.504 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Load TeX macros' in load_tex_macros/load_tex_macros.yaml
+[D 00:42:50.506 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Snippets' in snippets/snippets.yaml
+[D 00:42:50.507 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Navigation-Hotkeys' in navigation-hotkeys/hotkeys.yaml
+[D 00:42:50.508 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Launch QTConsole' in qtconsole/qtconsole.yaml
+[D 00:42:50.512 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Split Cells Notebook' in splitcell/splitcell.yaml
+[D 00:42:50.513 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'AddBefore' in addbefore/addbefore.yaml
+[D 00:42:50.514 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Rubberband' in rubberband/rubberband.yaml
+[D 00:42:50.516 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Keyboard shortcut editor' in keyboard_shortcut_editor/keyboard_shortcut_editor.yaml
+[D 00:42:50.518 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Table of Contents (2)' in toc2/toc2.yaml
+[D 00:42:50.522 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Snippets Menu' in snippets_menu/config.yaml
+[D 00:42:50.531 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Autoscroll' in autoscroll/autoscroll.yaml
+[D 00:42:50.533 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Limit Output' in limit_output/limit-output.yaml
+[D 00:42:50.544 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Collapsible Headings' in collapsible_headings/collapsible_headings.yaml
+[D 00:42:50.546 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'ExecuteTime' in execute_time/ExecuteTime.yaml
+[D 00:42:50.547 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Export Embedded HTML' in export_embedded/export_embedded.yaml
+[D 00:42:50.548 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Hide input' in hide_input/hide-input.yaml
+[D 00:42:50.549 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Help panel' in help_panel/help_panel.yaml
+[D 00:42:50.552 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Scratchpad' in scratchpad/scratchpad.yaml
+[D 00:42:50.553 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Cell Filter' in cell_filter/cell_filter.yml
+[D 00:42:50.555 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Exercise2' in exercise2/exercise2.yaml
+[D 00:42:50.576 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Highlight selected word' in highlight_selected_word/configurator.yaml
+[D 00:42:50.585 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'SKILL Syntax' in skill/skill.yaml
+[D 00:42:50.587 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Freeze' in freeze/config.yaml
+[D 00:42:50.588 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Live Markdown Preview' in livemdpreview/livemdpreview.yml
+[D 00:42:50.589 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'contrib_nbextensions_help_item' in contrib_nbextensions_help_item/contrib_nbextensions_help_item.yaml
+[D 00:42:50.607 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension '(some) LaTeX environments for Jupyter' in latex_envs/latex_envs.yaml
+[D 00:42:50.643 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'table_beautifier' in table_beautifier/table_beautifier.yaml
+[D 00:42:50.646 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Codefolding in Editor' in codefolding/codefolding_editor.yaml
+[D 00:42:50.655 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Codefolding' in codefolding/codefolding.yaml
+[D 00:42:50.656 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Notify' in notify/notify.yaml
+[D 00:42:50.660 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Printview' in printview/printview.yaml
+[D 00:42:50.660 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /usr/local/share/jupyter/nbextensions
+[D 00:42:50.660 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /usr/share/jupyter/nbextensions
+[D 00:42:50.660 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /gpfs7kw/linkhome/rech/genini01/usc19dv/.ipython/nbextensions
+[D 00:42:50.660 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static
+[D 00:42:50.692 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Nbextensions edit menu item' in nbextensions_configurator/config_menu/config_menu.yaml
+[D 00:42:50.704 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Nbextensions dashboard tab' in nbextensions_configurator/tree_tab/tree_tab.yaml
+[D 00:42:50.705 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/list?_=1657665763303 (10.148.0.38) 333.740000ms
+[D 00:43:43.687 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763304 (10.148.0.38) 0.680000ms
+[D 00:43:43.688 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763305 (10.148.0.38) 0.460000ms
+[D 00:43:43.758 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657665763306 (10.148.0.38) 4.950000ms
+[D 00:44:43.682 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763307 (10.148.0.38) 0.670000ms
+[D 00:44:43.683 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763308 (10.148.0.38) 0.470000ms
+[D 00:44:43.760 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657665763309 (10.148.0.38) 4.610000ms
+[D 01:07:08.218 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763310 (10.148.0.38) 0.710000ms
+[D 01:07:08.237 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763311 (10.148.0.38) 0.460000ms
+[D 01:07:08.409 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657665763312 (10.148.0.38) 50.280000ms
+[D 01:12:32.844 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763313 (10.148.0.38) 0.900000ms
+[D 01:12:32.856 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763314 (10.148.0.38) 0.460000ms
+[D 01:12:32.924 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657665763315 (10.148.0.38) 4.780000ms
+[D 01:45:04.063 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763316 (10.148.0.38) 0.720000ms
+[D 01:45:04.084 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763317 (10.148.0.38) 0.470000ms
+[D 01:45:04.478 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657665763318 (10.148.0.38) 353.820000ms
+[D 01:45:26.600 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763319 (10.148.0.38) 0.660000ms
+[D 01:45:26.602 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763320 (10.148.0.38) 0.460000ms
+[D 01:45:26.683 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657665763321 (10.148.0.38) 4.780000ms
+Event Multiplexer initializing.
+Event Multiplexer done initializing
+Launching reload in a daemon thread
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+[D 01:46:29.374 NotebookApp] 200 POST /jean-zay1_8010/api/tensorboard (10.148.0.38) 59174.560000ms
+[D 01:46:29.385 NotebookApp] 200 POST /jean-zay1_8010/api/tensorboard (10.148.0.38) 1.550000ms
+[D 01:46:29.386 NotebookApp] 200 POST /jean-zay1_8010/api/tensorboard (10.148.0.38) 1.470000ms
+[D 01:46:29.386 NotebookApp] Using contents: services/contents
+[D 01:46:29.447 NotebookApp] 200 GET /jean-zay1_8010/tree? (10.148.0.38) 62.810000ms
+[D 01:46:29.448 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763322 (10.148.0.38) 63.440000ms
+[D 01:46:29.449 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763323 (10.148.0.38) 0.480000ms
+[D 01:46:29.527 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657665763325 (10.148.0.38) 0.430000ms
+[D 01:46:29.528 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657665763324 (10.148.0.38) 0.530000ms
+[D 01:46:29.551 NotebookApp] 200 GET /jean-zay1_8010/api/tensorboard?_=1657665763326 (10.148.0.38) 0.420000ms
+[D 01:46:29.600 NotebookApp] 200 GET /jean-zay1_8010/api/tensorboard?_=1657665763327 (10.148.0.38) 0.410000ms
+[I 01:46:29.615 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/ (10.148.0.38) 1.15ms
+[D 01:46:29.615 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/ (10.148.0.38) 1.300000ms
+[D 01:46:29.616 NotebookApp] 200 GET /jean-zay1_8010/api/tensorboard?_=1657665763328 (10.148.0.38) 0.400000ms
+[D 01:46:29.757 NotebookApp] 200 GET /jean-zay1_8010/static/style/style.min.css?v=b092d0a2da5df36f2b073ddb4eafcd6c8094c4fa21b6dcd3f7185ce16c04ad66424083d785b81607a26b4b85b69a560574ada7db75262c886655f99d651c482e (10.148.0.38) 56.420000ms
+[D 01:46:29.829 NotebookApp] 200 GET /jean-zay1_8010/static/components/jquery-ui/themes/smoothness/jquery-ui.min.css?v=fb45616eef2c454960f91fcd2a04efeda84cfacccf0c5d741ba2793dc1dbd6d3ab01aaae6485222945774c7d7a9a2e9fb87e0d8ef1ea96893aa6906147a371bb (10.148.0.38) 71.950000ms
+[D 01:46:29.858 NotebookApp] 200 GET /jean-zay1_8010/static/components/jquery-typeahead/dist/jquery.typeahead.min.css?v=5edf53bf6bb9c3b1ddafd8594825a7e2ed621f19423e569c985162742f63911c09eba2c529f8fb47aebf27fafdfe287d563347f58c1126b278189a18871b6a9a (10.148.0.38) 29.240000ms
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 54.416 secs
+[I 01:46:30.115 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/index.js?_file_hash=29a7d03a (10.148.0.38) 1.55ms
+[D 01:46:30.116 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/index.js?_file_hash=29a7d03a (10.148.0.38) 2.810000ms
+[D 01:46:30.447 NotebookApp] 200 GET /jean-zay1_8010/custom/custom.css (10.148.0.38) 23.200000ms
+[D 01:46:30.489 NotebookApp] 200 GET /jean-zay1_8010/static/components/es6-promise/promise.min.js?v=bea335d74136a63ae1b5130f5ac9a50c6256a5f435e6e09fef599491a84d834a8b0f011ca3eaaca3b4ab6a2da2d3e1191567a2f171e60da1d10e5b9d52f84184 (10.148.0.38) 34.860000ms
+[D 01:46:30.521 NotebookApp] 200 GET /jean-zay1_8010/static/components/react/react.production.min.js?v=9a0aaf84a316c8bedd6c2ff7d5b5e0a13f8f84ec02442346cba0b842c6c81a6bf6176e64f3675c2ebf357cb5bb048e0b527bd39377c95681d22468da3d5de735 (10.148.0.38) 28.990000ms
+[D 01:46:31.371 NotebookApp] 200 GET /jean-zay1_8010/static/components/react/react-dom.production.min.js?v=6fc58c1c4736868ff84f57bd8b85f2bdb985993a9392718f3b4af4bfa10fb4efba2b4ddd68644bd2a8daf0619a3844944c9c43f8528364a1aa6fc01ec1b8ae84 (10.148.0.38) 33.420000ms
+[D 01:46:31.412 NotebookApp] 200 GET /jean-zay1_8010/static/components/create-react-class/index.js?v=894ad57246e682b4cfbe7cd5e408dcd6b38d06af4de4f3425991e2676fdc2ef1732cbd19903104198878ae77de12a1996de3e7da3a467fb226bdda8f4618faec (10.148.0.38) 37.500000ms
+[D 01:46:31.449 NotebookApp] 200 GET /jean-zay1_8010/static/components/requirejs/require.js?v=d37b48bb2137faa0ab98157e240c084dd5b1b5e74911723aa1d1f04c928c2a03dedf922d049e4815f7e5a369faa2e6b6a1000aae958b7953b5cc60411154f593 (10.148.0.38) 33.570000ms
+[D 01:46:32.311 NotebookApp] 200 GET /jean-zay1_8010/static/base/images/logo.png?v=a2a176ee3cee251ffddf5fa21fe8e43727a9e5f87a06f9c91ad7b776d9e9d3d5e0159c16cc188a3965e00375fb4bc336c16067c688f5040c0c2d4bfdb852a9e4 (10.148.0.38) 56.590000ms
+[I 01:46:32.372 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/icon_bundle.svg (10.148.0.38) 0.69ms
+[D 01:46:32.372 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/icon_bundle.svg (10.148.0.38) 0.850000ms
+Plugin listing: is_active() for scalars took 0.000 seconds
+Plugin listing: is_active() for custom_scalars took 0.000 seconds
+Plugin listing: is_active() for images took 0.000 seconds
+Plugin listing: is_active() for audio took 0.000 seconds
+Plugin listing: is_active() for debugger-v2 took 0.000 seconds
+Plugin listing: is_active() for graphs took 0.000 seconds
+Plugin listing: is_active() for distributions took 0.000 seconds
+Plugin listing: is_active() for histograms took 0.000 seconds
+Plugin listing: is_active() for text took 0.000 seconds
+Plugin listing: is_active() for pr_curves took 0.000 seconds
+Plugin listing: is_active() for profile_redirect took 0.000 seconds
+Plugin listing: is_active() for hparams took 0.000 seconds
+Plugin listing: is_active() for mesh took 0.000 seconds
+Plugin listing: is_active() for timeseries took 0.000 seconds
+Plugin listing: is_active() for projector took 0.001 seconds
+Plugin listing: is_active() for whatif took 0.000 seconds
+[I 01:46:32.652 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/plugins_listing (10.148.0.38) 276.14ms
+[D 01:46:32.652 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/plugins_listing (10.148.0.38) 276.300000ms
+[D 01:46:32.656 NotebookApp] 200 GET /jean-zay1_8010/static/tree/js/main.min.js?v=421a131a2c530e769753ba189dc4560a613e13a6779a49096cf8af772d3aaf4c4cef39855ddcbc0478249f4fc8997eb4cb9bacedc92786dcf0ad8e9fa7592355 (10.148.0.38) 342.470000ms
+[I 01:46:32.657 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 1.00ms
+[D 01:46:32.657 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 1.130000ms
+[I 01:46:32.658 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.62ms
+[D 01:46:32.658 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.750000ms
+[I 01:46:32.792 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.79ms
+[D 01:46:32.792 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.920000ms
+[I 01:46:32.820 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.61ms
+[D 01:46:32.820 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.740000ms
+[D 01:46:33.222 NotebookApp] 200 GET /jean-zay1_8010/static/base/images/favicon.ico?v=50afa725b5de8b00030139d09b38620224d4e7dba47c07ef0e86d4643f30c9bfe6bb7e1a4a1c561aa32834480909a4b6fe7cd1e17f7159330b6b5914bf45a880 (10.148.0.38) 26.710000ms
+[D 01:46:33.440 NotebookApp] 200 GET /jean-zay1_8010/static/services/contents.js?v=20220713001520 (10.148.0.38) 37.370000ms
+[D 01:46:33.527 NotebookApp] Paths used for configuration of tree: 
+    	/etc/jupyter/nbconfig/tree.json
+[D 01:46:33.527 NotebookApp] Paths used for configuration of tree: 
+    	/usr/local/etc/jupyter/nbconfig/tree.json
+[D 01:46:33.565 NotebookApp] Paths used for configuration of tree: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/tree.json
+[D 01:46:33.576 NotebookApp] Paths used for configuration of tree: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/tree.json
+[D 01:46:33.592 NotebookApp] Paths used for configuration of tree: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/tree.json
+[D 01:46:33.604 NotebookApp] 200 GET /jean-zay1_8010/api/config/tree?_=1657669593066 (10.148.0.38) 77.770000ms
+[D 01:46:33.609 NotebookApp] Paths used for configuration of common: 
+    	/etc/jupyter/nbconfig/common.json
+[D 01:46:33.609 NotebookApp] Paths used for configuration of common: 
+    	/usr/local/etc/jupyter/nbconfig/common.json
+[D 01:46:33.609 NotebookApp] Paths used for configuration of common: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/common.json
+[D 01:46:33.610 NotebookApp] Paths used for configuration of common: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/common.json
+[D 01:46:33.610 NotebookApp] Paths used for configuration of common: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/common.json
+[D 01:46:33.611 NotebookApp] 200 GET /jean-zay1_8010/api/config/common?_=1657669593067 (10.148.0.38) 3.160000ms
+[D 01:46:33.612 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593068 (10.148.0.38) 0.410000ms
+[D 01:46:33.710 NotebookApp] Found kernel xpython-raw in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/kernels
+[D 01:46:33.710 NotebookApp] Found kernel xpython in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/kernels
+[D 01:46:33.710 NotebookApp] Found kernel python3 in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/kernels
+[D 01:46:33.726 NotebookApp] 200 GET /jean-zay1_8010/api/kernelspecs (10.148.0.38) 114.160000ms
+[D 01:46:33.772 NotebookApp] 200 GET /jean-zay1_8010/static/components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0 (10.148.0.38) 39.750000ms
+[D 01:46:33.773 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593069 (10.148.0.38) 39.830000ms
+[D 01:46:33.774 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593070 (10.148.0.38) 0.420000ms
+[D 01:46:33.844 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593071 (10.148.0.38) 5.220000ms
+[D 01:46:34.504 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/tree_tab/main.js?v=20220713001520 (10.148.0.38) 76.530000ms
+[D 01:46:34.520 NotebookApp] 200 GET /jean-zay1_8010/custom/custom.js?v=20220713001520 (10.148.0.38) 92.790000ms
+[D 01:46:34.552 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/jupyter_tensorboard/tree.js?v=20220713001520 (10.148.0.38) 30.860000ms
+[D 01:46:34.639 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/render/render.js?v=20220713001520 (10.148.0.38) 27.980000ms
+[D 01:46:34.647 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/main.js?v=20220713001520 (10.148.0.38) 8.360000ms
+[D 01:46:34.669 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/jupyter_tensorboard/tensorboardlist.js?v=20220713001520 (10.148.0.38) 21.600000ms
+[D 01:46:34.736 NotebookApp] 200 GET /jean-zay1_8010/static/base/js/security.js?v=20220713001520 (10.148.0.38) 34.070000ms
+[D 01:46:34.811 NotebookApp] 200 GET /jean-zay1_8010/static/notebook/js/mathjaxutils.js?v=20220713001520 (10.148.0.38) 54.440000ms
+[D 01:46:34.875 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/addon/runmode/runmode.js?v=20220713001520 (10.148.0.38) 57.990000ms
+[D 01:46:34.875 NotebookApp] 200 GET /jean-zay1_8010/api/tensorboard?_=1657669593072 (10.148.0.38) 58.020000ms
+[D 01:46:34.885 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/jupyter_tensorboard/style.css (10.148.0.38) 7.880000ms
+[D 01:46:34.942 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/gfm/gfm.js?v=20220713001520 (10.148.0.38) 56.730000ms
+[D 01:46:34.962 NotebookApp] 200 GET /jean-zay1_8010/static/notebook/js/codemirror-ipython.js?v=20220713001520 (10.148.0.38) 15.650000ms
+[D 01:46:34.971 NotebookApp] 200 GET /jean-zay1_8010/static/notebook/js/codemirror-ipythongfm.js?v=20220713001520 (10.148.0.38) 8.690000ms
+[D 01:46:35.031 NotebookApp] 200 GET /jean-zay1_8010/static/notebook/js/quickhelp.js?v=20220713001520 (10.148.0.38) 33.830000ms
+[D 01:46:35.064 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/kse_components.js?v=20220713001520 (10.148.0.38) 28.950000ms
+[D 01:46:35.104 NotebookApp] 200 GET /jean-zay1_8010/static/components/sanitizer/index.js?v=20220713001520 (10.148.0.38) 39.870000ms
+[D 01:46:35.134 NotebookApp] 200 GET /jean-zay1_8010/static/base/js/mathjaxutils.js?v=20220713001520 (10.148.0.38) 27.960000ms
+[D 01:46:35.169 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/markdown/markdown.js?v=20220713001520 (10.148.0.38) 32.160000ms
+[D 01:46:35.225 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/addon/mode/overlay.js?v=20220713001520 (10.148.0.38) 8.960000ms
+[D 01:46:35.491 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/python/python.js?v=20220713001520 (10.148.0.38) 24.470000ms
+[D 01:46:35.549 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/addon/mode/multiplex.js?v=20220713001520 (10.148.0.38) 16.860000ms
+[D 01:46:35.600 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/stex/stex.js?v=20220713001520 (10.148.0.38) 48.260000ms
+[D 01:46:35.630 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/quickhelp_shim.js?v=20220713001520 (10.148.0.38) 30.040000ms
+[D 01:46:35.658 NotebookApp] 200 GET /jean-zay1_8010/static/components/jquery-ui/jquery-ui.min.js?v=20220713001520 (10.148.0.38) 25.600000ms
+[D 01:46:35.681 NotebookApp] 200 GET /jean-zay1_8010/static/components/codemirror/mode/xml/xml.js?v=20220713001520 (10.148.0.38) 20.380000ms
+[D 01:46:35.830 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/main.css?v=20220713001520 (10.148.0.38) 20.450000ms
+[D 01:46:35.839 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/render/rendermd.css?v=20220713001520 (10.148.0.38) 5.580000ms
+[D 01:46:35.840 NotebookApp] Paths used for configuration of notebook: 
+    	/etc/jupyter/nbconfig/notebook.json
+[D 01:46:35.841 NotebookApp] Paths used for configuration of notebook: 
+    	/usr/local/etc/jupyter/nbconfig/notebook.json
+[D 01:46:35.847 NotebookApp] Paths used for configuration of notebook: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/notebook.d/widgetsnbextension.json
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/notebook.json
+[D 01:46:35.881 NotebookApp] Paths used for configuration of notebook: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/notebook.json
+[D 01:46:35.881 NotebookApp] Paths used for configuration of notebook: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/notebook.json
+[D 01:46:35.897 NotebookApp] 200 GET /jean-zay1_8010/api/config/notebook?_=1657669593073 (10.148.0.38) 56.710000ms
+[D 01:46:35.897 NotebookApp] Paths used for configuration of notebook: 
+    	/etc/jupyter/nbconfig/notebook.json
+[D 01:46:35.898 NotebookApp] Paths used for configuration of notebook: 
+    	/usr/local/etc/jupyter/nbconfig/notebook.json
+[D 01:46:35.898 NotebookApp] Paths used for configuration of notebook: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/notebook.d/widgetsnbextension.json
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/notebook.json
+[D 01:46:35.899 NotebookApp] Paths used for configuration of notebook: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/notebook.json
+[D 01:46:35.899 NotebookApp] Paths used for configuration of notebook: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/notebook.json
+[D 01:46:35.899 NotebookApp] 200 GET /jean-zay1_8010/api/config/notebook?_=1657669593074 (10.148.0.38) 2.690000ms
+[D 01:46:35.904 NotebookApp] Paths used for configuration of edit: 
+    	/etc/jupyter/nbconfig/edit.json
+[D 01:46:35.904 NotebookApp] Paths used for configuration of edit: 
+    	/usr/local/etc/jupyter/nbconfig/edit.json
+[D 01:46:35.904 NotebookApp] Paths used for configuration of edit: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/edit.json
+[D 01:46:35.905 NotebookApp] Paths used for configuration of edit: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/edit.json
+[D 01:46:35.905 NotebookApp] Paths used for configuration of edit: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/edit.json
+[D 01:46:35.905 NotebookApp] 200 GET /jean-zay1_8010/api/config/edit?_=1657669593075 (10.148.0.38) 2.280000ms
+[D 01:46:35.906 NotebookApp] Paths used for configuration of edit: 
+    	/etc/jupyter/nbconfig/edit.json
+[D 01:46:35.907 NotebookApp] Paths used for configuration of edit: 
+    	/usr/local/etc/jupyter/nbconfig/edit.json
+[D 01:46:35.907 NotebookApp] Paths used for configuration of edit: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/edit.json
+[D 01:46:35.925 NotebookApp] Paths used for configuration of edit: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/edit.json
+[D 01:46:35.925 NotebookApp] Paths used for configuration of edit: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/edit.json
+[D 01:46:35.926 NotebookApp] 200 GET /jean-zay1_8010/api/config/edit?_=1657669593076 (10.148.0.38) 19.640000ms
+[D 01:46:35.950 NotebookApp] Paths used for configuration of common: 
+    	/etc/jupyter/nbconfig/common.json
+[D 01:46:35.951 NotebookApp] Paths used for configuration of common: 
+    	/usr/local/etc/jupyter/nbconfig/common.json
+[D 01:46:35.951 NotebookApp] Paths used for configuration of common: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/common.json
+[D 01:46:35.951 NotebookApp] Paths used for configuration of common: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/common.json
+[D 01:46:35.952 NotebookApp] Paths used for configuration of common: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/common.json
+[D 01:46:35.952 NotebookApp] 200 GET /jean-zay1_8010/api/config/common?_=1657669593079 (10.148.0.38) 2.140000ms
+[D 01:46:35.956 NotebookApp] Paths used for configuration of common: 
+    	/etc/jupyter/nbconfig/common.json
+[D 01:46:35.957 NotebookApp] Paths used for configuration of common: 
+    	/usr/local/etc/jupyter/nbconfig/common.json
+[D 01:46:35.957 NotebookApp] Paths used for configuration of common: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/common.json
+[D 01:46:35.957 NotebookApp] Paths used for configuration of common: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/common.json
+[D 01:46:35.958 NotebookApp] Paths used for configuration of common: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/common.json
+[D 01:46:35.958 NotebookApp] 200 GET /jean-zay1_8010/api/config/common?_=1657669593080 (10.148.0.38) 2.930000ms
+[D 01:46:35.961 NotebookApp] Paths used for configuration of tree: 
+    	/etc/jupyter/nbconfig/tree.json
+[D 01:46:35.961 NotebookApp] Paths used for configuration of tree: 
+    	/usr/local/etc/jupyter/nbconfig/tree.json
+[D 01:46:35.961 NotebookApp] Paths used for configuration of tree: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/tree.json
+[D 01:46:35.962 NotebookApp] Paths used for configuration of tree: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/tree.json
+[D 01:46:35.962 NotebookApp] Paths used for configuration of tree: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/tree.json
+[D 01:46:35.963 NotebookApp] 200 GET /jean-zay1_8010/api/config/tree?_=1657669593077 (10.148.0.38) 2.390000ms
+[D 01:46:35.980 NotebookApp] Paths used for configuration of tree: 
+    	/etc/jupyter/nbconfig/tree.json
+[D 01:46:35.980 NotebookApp] Paths used for configuration of tree: 
+    	/usr/local/etc/jupyter/nbconfig/tree.json
+[D 01:46:35.981 NotebookApp] Paths used for configuration of tree: 
+    	/gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/etc/jupyter/nbconfig/tree.json
+[D 01:46:35.981 NotebookApp] Paths used for configuration of tree: 
+    	/linkhome/rech/genini01/usc19dv/.local/etc/jupyter/nbconfig/tree.json
+[D 01:46:35.981 NotebookApp] Paths used for configuration of tree: 
+    	/gpfs7kw/linkhome/rech/genini01/usc19dv/.jupyter/nbconfig/tree.json
+[D 01:46:35.982 NotebookApp] 200 GET /jean-zay1_8010/api/config/tree?_=1657669593078 (10.148.0.38) 2.490000ms
+[D 01:46:36.033 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /gpfs7kw/linkhome/rech/genini01/usc19dv/.local/share/jupyter/nbextensions
+[D 01:46:36.033 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /linkhome/rech/genini01/usc19dv/.local/share/jupyter/nbextensions
+[D 01:46:36.034 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/share/jupyter/nbextensions
+[D 01:46:36.073 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Equation Auto Numbering' in equation-numbering/info.yaml
+[D 01:46:36.103 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Execution Dependencies' in execution_dependencies/execution_dependencies.yml
+[D 01:46:36.124 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Select CodeMirror Keymap' in select_keymap/select_keymap.yaml
+[D 01:46:36.140 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'nbTranslate' in nbTranslate/nbTranslate.yaml
+[D 01:46:36.168 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Skip-Traceback' in skip-traceback/skip-traceback.yaml
+[D 01:46:36.178 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Tree Filter' in tree-filter/tree-filter.yaml
+[D 01:46:36.191 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Ruler in Editor' in ruler/ruler_editor.yaml
+[D 01:46:36.199 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Ruler' in ruler/ruler.yaml
+[D 01:46:36.215 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Hide input all' in hide_input_all/hide_input_all.yaml
+[D 01:46:36.232 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Initialization cells' in init_cell/init_cell.yaml
+[D 01:46:36.248 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Gist-it' in gist_it/gist_it.yaml
+[D 01:46:36.259 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Toggle all line numbers' in toggle_all_line_numbers/main.yaml
+[D 01:46:36.270 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'datestamper' in datestamper/main.yaml
+[D 01:46:36.287 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'highlighter' in highlighter/highlighter.yaml
+[D 01:46:36.299 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'spellchecker' in spellchecker/config.yaml
+[D 01:46:36.316 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Comment/Uncomment Hotkey' in comment-uncomment/comment-uncomment.yaml
+[D 01:46:36.326 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'CodeMirror mode extensions' in codemirror_mode_extensions/codemirror_mode_extensions.yaml
+[D 01:46:36.337 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension '2to3 Converter' in code_prettify/2to3.yaml
+[D 01:46:36.345 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Autopep8' in code_prettify/autopep8.yaml
+[D 01:46:36.354 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Code prettify' in code_prettify/code_prettify.yaml
+[D 01:46:36.362 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'isort formatter' in code_prettify/isort.yaml
+[D 01:46:36.371 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Code Font Size' in code_font_size/code_font_size.yaml
+[D 01:46:36.372 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'ScrollDown' in scroll_down/config.yaml
+[D 01:46:36.377 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Exercise' in exercise/exercise.yaml
+[D 01:46:36.388 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'AutoSaveTime' in autosavetime/autosavetime.yaml
+[D 01:46:36.413 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Python Markdown' in python-markdown/python-markdown.yaml
+[D 01:46:36.415 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Move selected cells' in move_selected_cells/move_selected_cells.yaml
+[D 01:46:36.429 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Variable Inspector' in varInspector/varInspector.yaml
+[D 01:46:36.455 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Hide Header' in hide_header/hide_header.yaml
+[D 01:46:36.471 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Hinterland' in hinterland/hinterland.yaml
+[D 01:46:36.488 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'zenmode' in zenmode/zenmode.yaml
+[D 01:46:36.513 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Runtools' in runtools/runtools.yaml
+[D 01:46:36.530 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Load TeX macros' in load_tex_macros/load_tex_macros.yaml
+[D 01:46:36.546 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Snippets' in snippets/snippets.yaml
+[D 01:46:36.563 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Navigation-Hotkeys' in navigation-hotkeys/hotkeys.yaml
+[D 01:46:36.580 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Launch QTConsole' in qtconsole/qtconsole.yaml
+[D 01:46:36.596 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Split Cells Notebook' in splitcell/splitcell.yaml
+[D 01:46:36.610 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'AddBefore' in addbefore/addbefore.yaml
+[D 01:46:36.625 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Rubberband' in rubberband/rubberband.yaml
+[D 01:46:36.639 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Keyboard shortcut editor' in keyboard_shortcut_editor/keyboard_shortcut_editor.yaml
+[D 01:46:36.656 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Table of Contents (2)' in toc2/toc2.yaml
+[D 01:46:36.673 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Snippets Menu' in snippets_menu/config.yaml
+[D 01:46:36.702 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Autoscroll' in autoscroll/autoscroll.yaml
+[D 01:46:36.717 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Limit Output' in limit_output/limit-output.yaml
+[D 01:46:36.749 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Collapsible Headings' in collapsible_headings/collapsible_headings.yaml
+[D 01:46:36.767 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'ExecuteTime' in execute_time/ExecuteTime.yaml
+[D 01:46:36.784 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Export Embedded HTML' in export_embedded/export_embedded.yaml
+[D 01:46:36.802 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Hide input' in hide_input/hide-input.yaml
+[D 01:46:36.818 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Help panel' in help_panel/help_panel.yaml
+[D 01:46:36.843 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Scratchpad' in scratchpad/scratchpad.yaml
+[D 01:46:36.856 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Cell Filter' in cell_filter/cell_filter.yml
+[D 01:46:36.868 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Exercise2' in exercise2/exercise2.yaml
+[D 01:46:36.891 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Highlight selected word' in highlight_selected_word/configurator.yaml
+[D 01:46:36.911 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'SKILL Syntax' in skill/skill.yaml
+[D 01:46:36.926 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Freeze' in freeze/config.yaml
+[D 01:46:36.944 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Live Markdown Preview' in livemdpreview/livemdpreview.yml
+[D 01:46:36.959 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'contrib_nbextensions_help_item' in contrib_nbextensions_help_item/contrib_nbextensions_help_item.yaml
+[D 01:46:36.993 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension '(some) LaTeX environments for Jupyter' in latex_envs/latex_envs.yaml
+[D 01:46:37.027 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'table_beautifier' in table_beautifier/table_beautifier.yaml
+[D 01:46:37.053 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Codefolding in Editor' in codefolding/codefolding_editor.yaml
+[D 01:46:37.061 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Codefolding' in codefolding/codefolding.yaml
+[D 01:46:37.076 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Notify' in notify/notify.yaml
+[D 01:46:37.086 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Printview' in printview/printview.yaml
+[D 01:46:37.086 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /usr/local/share/jupyter/nbextensions
+[D 01:46:37.086 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /usr/share/jupyter/nbextensions
+[D 01:46:37.086 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /gpfs7kw/linkhome/rech/genini01/usc19dv/.ipython/nbextensions
+[D 01:46:37.086 NotebookApp] [jupyter_nbextensions_configurator] Looking for nbextension yaml descriptor files in /gpfslocalsup/pub/anaconda-py3/2021.05/envs/tensorflow-2.7.0+py3.9/lib/python3.9/site-packages/jupyter_nbextensions_configurator/static
+[D 01:46:37.120 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Nbextensions edit menu item' in nbextensions_configurator/config_menu/config_menu.yaml
+[D 01:46:37.138 NotebookApp] [jupyter_nbextensions_configurator] Found nbextension 'Nbextensions dashboard tab' in nbextensions_configurator/tree_tab/tree_tab.yaml
+[D 01:46:37.139 NotebookApp] 200 GET /jean-zay1_8010/nbextensions/nbextensions_configurator/list?_=1657669593081 (10.148.0.38) 1106.460000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.040 secs
+[I 01:47:28.611 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/ (10.148.0.38) 1.13ms
+[D 01:47:28.611 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/ (10.148.0.38) 1.380000ms
+[I 01:47:28.871 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/index.js?_file_hash=29a7d03a (10.148.0.38) 1.54ms
+[D 01:47:28.872 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/index.js?_file_hash=29a7d03a (10.148.0.38) 2.270000ms
+[I 01:47:29.960 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/icon_bundle.svg (10.148.0.38) 0.75ms
+[D 01:47:29.960 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/icon_bundle.svg (10.148.0.38) 0.910000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Plugin listing: is_active() for scalars took 0.000 seconds
+Plugin listing: is_active() for custom_scalars took 0.000 seconds
+Plugin listing: is_active() for images took 0.000 seconds
+Plugin listing: is_active() for audio took 0.000 seconds
+Plugin listing: is_active() for debugger-v2 took 0.000 seconds
+Plugin listing: is_active() for graphs took 0.000 seconds
+Plugin listing: is_active() for distributions took 0.000 seconds
+Plugin listing: is_active() for histograms took 0.000 seconds
+Plugin listing: is_active() for text took 0.000 seconds
+Plugin listing: is_active() for pr_curves took 0.000 seconds
+Plugin listing: is_active() for profile_redirect took 0.000 seconds
+Plugin listing: is_active() for hparams took 0.000 seconds
+Plugin listing: is_active() for mesh took 0.000 seconds
+Plugin listing: is_active() for timeseries took 0.000 seconds
+Plugin listing: is_active() for projector took 0.000 seconds
+Plugin listing: is_active() for whatif took 0.000 seconds
+[I 01:47:30.015 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/plugins_listing (10.148.0.38) 1.90ms
+[D 01:47:30.016 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/plugins_listing (10.148.0.38) 2.830000ms
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.043 secs
+[I 01:47:30.069 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.81ms
+[D 01:47:30.069 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.950000ms
+[I 01:47:30.125 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.63ms
+[D 01:47:30.125 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.760000ms
+[I 01:47:30.178 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.74ms
+[D 01:47:30.178 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.890000ms
+[I 01:47:30.179 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.56ms
+[D 01:47:30.179 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.680000ms
+[I 01:47:32.994 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/ (10.148.0.38) 1.07ms
+[D 01:47:32.994 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/ (10.148.0.38) 1.280000ms
+[I 01:47:33.195 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/index.js?_file_hash=29a7d03a (10.148.0.38) 2.26ms
+[D 01:47:33.195 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/index.js?_file_hash=29a7d03a (10.148.0.38) 2.430000ms
+[I 01:47:34.034 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/icon_bundle.svg (10.148.0.38) 0.76ms
+[D 01:47:34.035 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/icon_bundle.svg (10.148.0.38) 0.950000ms
+[I 01:47:34.068 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 1.02ms
+[D 01:47:34.068 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 1.170000ms
+[I 01:47:34.069 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 1.36ms
+[D 01:47:34.069 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 1.490000ms
+Plugin listing: is_active() for scalars took 0.000 seconds
+Plugin listing: is_active() for custom_scalars took 0.000 seconds
+Plugin listing: is_active() for images took 0.000 seconds
+Plugin listing: is_active() for audio took 0.000 seconds
+Plugin listing: is_active() for debugger-v2 took 0.000 seconds
+Plugin listing: is_active() for graphs took 0.000 seconds
+Plugin listing: is_active() for distributions took 0.000 seconds
+Plugin listing: is_active() for histograms took 0.000 seconds
+Plugin listing: is_active() for text took 0.000 seconds
+Plugin listing: is_active() for pr_curves took 0.000 seconds
+Plugin listing: is_active() for profile_redirect took 0.000 seconds
+Plugin listing: is_active() for hparams took 0.000 seconds
+Plugin listing: is_active() for mesh took 0.000 seconds
+Plugin listing: is_active() for timeseries took 0.000 seconds
+Plugin listing: is_active() for projector took 0.000 seconds
+Plugin listing: is_active() for whatif took 0.000 seconds
+[I 01:47:34.071 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/plugins_listing (10.148.0.38) 1.70ms
+[D 01:47:34.071 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/plugins_listing (10.148.0.38) 1.830000ms
+[I 01:47:34.121 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.66ms
+[D 01:47:34.121 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.800000ms
+[I 01:47:34.122 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.54ms
+[D 01:47:34.122 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.670000ms
+[D 01:47:34.436 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593083 (10.148.0.38) 0.450000ms
+[D 01:47:34.438 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593082 (10.148.0.38) 0.500000ms
+[D 01:47:34.505 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593084 (10.148.0.38) 4.690000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.041 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.045 secs
+[D 01:48:34.608 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593085 (10.148.0.38) 0.710000ms
+[D 01:48:34.612 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593086 (10.148.0.38) 0.520000ms
+[D 01:48:34.678 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593087 (10.148.0.38) 4.720000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.045 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.043 secs
+[D 01:49:34.608 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593088 (10.148.0.38) 0.700000ms
+[D 01:49:34.609 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593089 (10.148.0.38) 0.460000ms
+[D 01:49:34.687 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593090 (10.148.0.38) 5.240000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.041 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.041 secs
+[D 01:50:34.619 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593091 (10.148.0.38) 0.690000ms
+[D 01:50:34.633 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593092 (10.148.0.38) 0.440000ms
+[D 01:50:34.683 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593093 (10.148.0.38) 4.770000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.042 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.040 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.066 secs
+[D 01:52:22.616 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593094 (10.148.0.38) 0.720000ms
+[D 01:52:22.617 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593095 (10.148.0.38) 0.470000ms
+[D 01:52:22.694 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593096 (10.148.0.38) 4.750000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.041 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.042 secs
+[D 01:53:22.614 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593097 (10.148.0.38) 0.750000ms
+[D 01:53:22.615 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593098 (10.148.0.38) 0.460000ms
+[D 01:53:22.678 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593099 (10.148.0.38) 5.080000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.043 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.042 secs
+[D 01:54:22.644 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593100 (10.148.0.38) 0.690000ms
+[D 01:54:22.645 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593101 (10.148.0.38) 0.490000ms
+[D 01:54:22.723 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593102 (10.148.0.38) 4.810000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.042 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.043 secs
+[D 01:55:22.630 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593104 (10.148.0.38) 0.720000ms
+[D 01:55:22.637 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593103 (10.148.0.38) 0.570000ms
+[D 01:55:22.701 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593105 (10.148.0.38) 4.780000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.041 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.050 secs
+[D 01:56:22.639 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593106 (10.148.0.38) 0.760000ms
+[D 01:56:22.651 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593107 (10.148.0.38) 0.460000ms
+[D 01:56:22.703 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593108 (10.148.0.38) 4.780000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.042 secs
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.041 secs
+[D 01:57:22.667 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593109 (10.148.0.38) 0.690000ms
+[D 01:57:22.668 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593110 (10.148.0.38) 0.470000ms
+[D 01:57:22.747 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593111 (10.148.0.38) 4.830000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.080 secs
+[I 01:57:58.137 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/ (10.148.0.38) 1.12ms
+[D 01:57:58.138 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/ (10.148.0.38) 1.350000ms
+[I 01:57:58.661 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/index.js?_file_hash=29a7d03a (10.148.0.38) 1.61ms
+[D 01:57:58.662 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/index.js?_file_hash=29a7d03a (10.148.0.38) 2.240000ms
+[I 01:58:00.740 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/icon_bundle.svg (10.148.0.38) 0.81ms
+[D 01:58:00.741 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/icon_bundle.svg (10.148.0.38) 1.020000ms
+Plugin listing: is_active() for scalars took 0.000 seconds
+Plugin listing: is_active() for custom_scalars took 0.000 seconds
+Plugin listing: is_active() for images took 0.000 seconds
+Plugin listing: is_active() for audio took 0.000 seconds
+Plugin listing: is_active() for debugger-v2 took 0.000 seconds
+Plugin listing: is_active() for graphs took 0.000 seconds
+Plugin listing: is_active() for distributions took 0.000 seconds
+Plugin listing: is_active() for histograms took 0.000 seconds
+Plugin listing: is_active() for text took 0.000 seconds
+Plugin listing: is_active() for pr_curves took 0.000 seconds
+Plugin listing: is_active() for profile_redirect took 0.000 seconds
+Plugin listing: is_active() for hparams took 0.000 seconds
+Plugin listing: is_active() for mesh took 0.000 seconds
+Plugin listing: is_active() for timeseries took 0.000 seconds
+Plugin listing: is_active() for projector took 0.000 seconds
+Plugin listing: is_active() for whatif took 0.000 seconds
+[I 01:58:00.796 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/plugins_listing (10.148.0.38) 2.06ms
+[D 01:58:00.797 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/plugins_listing (10.148.0.38) 3.110000ms
+[I 01:58:00.857 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.75ms
+[D 01:58:00.857 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.880000ms
+[I 01:58:00.913 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.65ms
+[D 01:58:00.913 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.790000ms
+[I 01:58:00.975 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.71ms
+[D 01:58:00.975 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/environment (10.148.0.38) 0.850000ms
+[I 01:58:00.976 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.59ms
+[D 01:58:00.976 NotebookApp] 200 GET /jean-zay1_8010/tensorboard/1/data/runs (10.148.0.38) 0.750000ms
+TensorBoard reload process beginning
+Starting AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+GetLogdirSubdirectories: Starting to list directories via walking.
+Done with AddRunsFromDirectory: /gpfsdswork/projects/rech/imi/usc19dv/trajectory-transformer/logs/LangRobot-v1/
+TensorBoard reload process: Reload the whole Multiplexer
+Beginning EventMultiplexer.Reload()
+Reloading runs serially (one after another) on the main thread.
+Finished with EventMultiplexer.Reload()
+TensorBoard done reloading. Load took 0.042 secs
+[D 01:58:01.625 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593112 (10.148.0.38) 0.660000ms
+[D 01:58:01.633 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593113 (10.148.0.38) 0.770000ms
+[D 01:58:01.633 NotebookApp] 200 GET /jean-zay1_8010/api/sessions?_=1657669593114 (10.148.0.38) 0.880000ms
+[D 01:58:01.634 NotebookApp] 200 GET /jean-zay1_8010/api/terminals?_=1657669593115 (10.148.0.38) 0.460000ms
+[D 01:58:01.728 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593117 (10.148.0.38) 4.810000ms
+[D 01:58:01.733 NotebookApp] 200 GET /jean-zay1_8010/api/contents?type=directory&_=1657669593116 (10.148.0.38) 4.630000ms
+[I 01:58:06.437 NotebookApp] Interrupted...
+[I 01:58:06.473 NotebookApp] Shutting down 0 kernels
+[I 01:58:06.474 NotebookApp] Shutting down 0 terminals
+[C 01:58:06.606 NotebookApp] received signal 15, stopping

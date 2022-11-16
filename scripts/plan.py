@@ -37,11 +37,13 @@ def run(args):
     goal_str = args.goal_str
     traj_data = None
     if args.session_id is not None and args.rec_id is not None:
+        print(data_folder+args.session_id+"/obs_act_etc/"+args.rec_id+"/data.npz")
         if os.path.exists(data_folder+args.session_id+"/obs_act_etc/"+args.rec_id+"/data.npz"):
+            print(data_folder+args.session_id+"/obs_act_etc/"+args.rec_id+"/data.npz")
             traj_data = np.load(data_folder+args.session_id+"/obs_act_etc/"+args.rec_id+"/data.npz", allow_pickle=True)
         elif os.path.exists(data_folder+args.session_id+"/"+args.rec_id+"/data.npz"):
             traj_data = np.load(data_folder+args.session_id+"/"+args.rec_id+"/data.npz", allow_pickle=True)
-            print(traj_data)
+        print(traj_data)
         if args.goal_str is None:
             goal_str = str(traj_data['goal_str'][0])
 
@@ -191,7 +193,10 @@ def run(args):
         # observation = init_obss
 
     ## save result as a json file
+    print("saving rsults in ")
+    print(args.savepath)
     json_path = join(args.savepath, 'rollout.json')
+    print(json_path)
     json_data = {'score': score, 'step': t, 'return': total_reward, 'term': terminal, 'gpt_epoch': gpt_epoch}
     json.dump(json_data, open(json_path, 'w'), indent=2, sort_keys=True)
     if args.save_eval_results:

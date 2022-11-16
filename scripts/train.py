@@ -125,7 +125,7 @@ trainer = trainer_config()
 #######################
 
 ## scale number of epochs to keep number of updates constant
-save_freq = int(n_epochs // args.n_saves)
+save_freq = max(1,int(n_epochs // args.n_saves))
 # save_freq = 1
 # from torch.utils.data import Subset
 # dataset_old = dataset

@@ -2,17 +2,17 @@
 
 #SBATCH --job-name=trajectory-transformer_onoise2
 ##SBATCH --time=100:00:00
-##SBATCH --time=20:00:00
-#SBATCH --time=01:00:00
+#SBATCH --time=20:00:00
+##SBATCH --time=01:00:00
 ##SBATCH --qos=qos_gpu-t4
-##SBATCH --qos=qos_gpu-t3
-#SBATCH --qos=qos_gpu-dev
+#SBATCH --qos=qos_gpu-t3
+##SBATCH --qos=qos_gpu-dev
 ##SBATCH --ntasks=1 --cpus-per-task=24 --gres=gpu:4
 ##SBATCH --ntasks=1 --cpus-per-task=24 --gres=gpu:1
 ##SBATCH --nodes=4 --ntasks-per-node=4 --cpus-per-task=6 --gres=gpu:4
 ##SBATCH --nodes=2 --ntasks-per-node=4 --cpus-per-task=6 --gres=gpu:4
-##SBATCH --nodes=1 --ntasks-per-node=1 --cpus-per-task=12 --gres=gpu:1
-#SBATCH --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --gres=gpu:1
+#SBATCH --nodes=1 --ntasks-per-node=1 --cpus-per-task=12 --gres=gpu:1
+##SBATCH --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --gres=gpu:1
 ##SBATCH --nodes=1 --ntasks-per-node=8 --cpus-per-task=4 --gres=gpu:8
 ##SBATCH --partition=gpu_p2
 #SBATCH -A imi@v100
@@ -64,8 +64,26 @@ export ROOT_GENERATED_DATA=/gpfsscratch/rech/imi/usc19dv/data/
 #srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big_bigN --n_layer 12 --n_embd 256 --learning_rate 1e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512 --continue_train
 #srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 1 --n_epochs_ref 1000 --exp_name short1_big_bigN_nowd --n_layer 12 --n_embd 256 --learning_rate 1e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512 --weight_decay 0.0
 #srun python scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 2 --n_epochs_ref 1000 --exp_name long1_big_bigN --n_layer 8 --n_embd 128 --learning_rate 7e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512
-srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 1000 --exp_name testing_new_disc_long3 --n_layer 8 --n_embd 64 --learning_rate 5e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 500
-#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 1000 --exp_name testing_new_disc_long_onoise2 --n_layer 8 --n_embd 64 --learning_rate 1e-3 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 512 --n_saves 500 --obs_noise 0.002
-#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 2 --n_epochs_ref 1000 --exp_name long1_big_bigN_smol --n_layer 8 --n_embd 128 --learning_rate 7e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512 --dataset_size 3000
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 100 --exp_name testing_new_disc_long3 --n_layer 8 --n_embd 64 --learning_rate 5e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 100 --exp_name testing_new_disc_long_onoise2 --n_layer 8 --n_embd 64 --learning_rate 1e-3 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 512 --n_saves 50 --obs_noise 0.002 --continue_train
+
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 100 --exp_name testing_new_disc_long3_bigger --n_layer 12 --n_embd 128 --learning_rate 2e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 100 --exp_name testing_new_disc_long3_bigger_L6 --n_layer 6 --n_embd 128 --learning_rate 2e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 100 --exp_name testing_new_disc_long3_bigger_L6_h32 --n_layer 6 --n_embd 32 --learning_rate 2e-4 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 100 --exp_name testing_new_disc_long3_bigger_L8_h64_l7e5 --n_layer 8 --n_embd 64 --learning_rate 7e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 100 --exp_name testing_new_disc_long3_bigger_L4_h256_l7e5 --n_layer 4 --n_embd 256 --learning_rate 7e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 3 --n_epochs_ref 100 --exp_name testing_new_disc_long3_bigger_L12_h128_l1e5 --n_layer 12 --n_embd 128 --learning_rate 1e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 6 --n_epochs_ref 100 --exp_name testing_new_disc_long6_bigger_L12_h128_l1e5 --n_layer 12 --n_embd 128 --learning_rate 1e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 6 --n_epochs_ref 100 --exp_name testing_new_disc_long6_bigger_L12_h128_l1e5 --n_layer 12 --n_embd 256 --learning_rate 1e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50
+
+#new ones
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 6 --n_epochs_ref 100 --exp_name testing_new_disc_long6_bigger_L12_h64_l1e5 --n_layer 12 --n_embd 64 --learning_rate 1e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 6 --n_epochs_ref 100 --exp_name testing_new_disc_long6_bigger_L6_h64_l1e5 --n_layer 6 --n_embd 64 --learning_rate 1e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 6 --n_epochs_ref 100 --exp_name testing_new_disc_long6_bigger_L6_h256_l1e5 --n_layer 6 --n_embd 256 --learning_rate 1e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+#srun nvidia-smi
+
+#srun /gpfslocalsup/pub/anaconda-py3/2021.05/envs/pytorch-1.8.1+py3.8.8-lts/bin/python3 scripts/train.py --dataset LangRobot-v1 --batch_size 64 --subsampled_sequence_length 6 --n_epochs_ref 100 --exp_name testing_new_disc_long6_bigger_L16_h128_l1e5 --n_layer 16 --n_embd 128 --learning_rate 1e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --weight_decay 0.0 --N 100 --n_saves 50 --continue_train
+
+#srun python scripts/train.py --dataset LangRobot-v1 --batch_size 128 --subsampled_sequence_length 2 --n_epochs_ref 1000 --exp_name long1_big_bigN_smol --n_layer 8 --n_embd 128 --learning_rate 7e-5 --embd_pdrop 0.0 --resid_pdrop 0.0 --attn_pdrop 0.0 --N 512 --dataset_size 3000 --continue_train
 #srun python scripts/train.py --dataset LangRobot-v0 --batch_size 64
 #srun python scripts/train.py --dataset LangRobot-v1 --batch_size 64

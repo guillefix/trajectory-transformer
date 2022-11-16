@@ -3,18 +3,23 @@
 #SBATCH --job-name=tt_eval
 ##SBATCH -A imi@cpu
 #SBATCH -A imi@v100
+#SBATCH -C v100-32g
 ##SBATCH --qos=qos_gpu-dev
-#SBATCH --qos=qos_gpu-t3
+##SBATCH --qos=qos_gpu-t3
+#SBATCH --qos=qos_gpu-t4
 ##SBATCH --qos=qos_cpu-dev
 ##SBATCH --qos=qos_cpu-t3 
 ##SBATCH --partition=gpu_p2
 #SBATCH --ntasks=40
-##SBATCH --ntasks=320
+##SBATCH --ntasks=2
+##SBATCH --ntasks=160
 ##SBATCH --ntasks=640
-#SBATCH --gres=gpu:2
-#SBATCH --cpus-per-task=2
+#SBATCH --gres=gpu:4
+##SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=4
 #SBATCH --hint=nomultithread
-#SBATCH --time=20:00:00
+##SBATCH --time=20:00:00
+#SBATCH --time=100:00:00
 ##SBATCH --time=2:00:00
 ##SBATCH --output=out.out
 ##SBATCH --error=err.err
@@ -36,7 +41,7 @@ export PYTHONPATH=/gpfswork/rech/imi/usc19dv/lib/python3.8/site-packages:/gpfsss
 export CPATH=/gpfsscratch/rech/imi/usc19dv/lib/awo/include/
 export LIBRARY_PATH=$LIBRARY_PATH:/gpfsscratch/rech/imi/usc19dv/lib/awo/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsscratch/rech/imi/usc19dv/lib/awo/lib/
-export ROOT_FOLDER=/gpfswork/rech/imi/usc19dv/captionRLenv/
+export ROOT_FOLDER=/gpfswork/rech/imi/usc19dv/RobotLangEnv/
 export DATA_FOLDER=/gpfsscratch/rech/imi/usc19dv/data/UR5/
 export PROCESSED_DATA_FOLDER=/gpfsscratch/rech/imi/usc19dv/data/UR5_processed/
 export ROOT_DIR_MODEL=/gpfswork/rech/imi/usc19dv/mt-lightning/
@@ -45,5 +50,8 @@ export ROOT_GENERATED_DATA=/gpfsscratch/rech/imi/usc19dv/data/
 export PROCESSED_GENERATED_DATA_FOLDER=/gpfsscratch/rech/imi/usc19dv/data/generated_data_processed/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/linkhome/rech/genini01/usc19dv/.mujoco/mujoco210/bin
 
-#srun --wait=0 -n 320 python3 inference_mpi.py --gpt_loadpath short1_big2 --base_filenames_file ${PROCESSED_DATA_FOLDER}base_filenames_single_objs_filtered.txt --save_eval_results --num_repeats 20
-srun --wait=0 -n 2 python3 inference_mpi.py --dataset LangRobot-v1 --gpt_loadpath short1_big2 --base_filenames_file base_filenames_single_objs_filtered.txt --save_eval_results --num_repeats 20
+#srun --wait=0 -n 80 python3 inference_mpi.py --dataset LangRobot-v1 --gpt_loadpath testing_new_disc_long6_bigger_L6_h64_l1e5 --base_filenames_file base_filenames_single_objs_filtered.txt --save_eval_results --num_repeats 20 --suffix new --savepath /gpfswork/rech/imi/usc19dv/trajectory-transformer/
+srun --wait=0 -n 40 python3 inference_mpi.py --dataset LangRobot-v1 --gpt_loadpath testing_new_disc_long6_bigger_L6_h256_l1e5 --base_filenames_file base_filenames_single_objs_filtered.txt --save_eval_results --num_repeats 20 --suffix new_h256
+#srun --wait=0 -n 2 python3 inference_mpi.py --dataset LangRobot-v1 --gpt_loadpath testing_new_disc_long6_bigger_L6_h64_l1e5 --base_filenames_file base_filenames_single_objs_filtered.txt --save_eval_results --num_repeats 20 --max_episode_length 10 --savepath results
+#srun --wait=0 -n 2 python3 inference_mpi.py --dataset LangRobot-v1 --gpt_loadpath short1_big2 --base_filenames_file base_filenames_single_objs_filtered.txt --save_eval_results --num_repeats 20
+#srun --wait=0 -n 2 python3 inference_mpi.py --dataset LangRobot-v1 --gpt_loadpath testing_new_disc_long6_bigger_L6_h64_l1e5 --base_filenames_file base_filenames_single_objs_filtered.txt --save_eval_results --num_repeats 20

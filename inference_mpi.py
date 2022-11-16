@@ -22,12 +22,14 @@ class Parser(utils.Parser):
     rec_id: str = None
     varying_args: str = 'session_id,rec_id'
     max_episode_length: int = 3000
+    temperature: float = 1.0
 
 #######################
 ######## setup ########
 #######################
 
 args = Parser().parse_args('plan')
+print(args)
 
 ## distributing tasks accross nodes ##
 from mpi4py import MPI
